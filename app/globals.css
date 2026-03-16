@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: #B8892A;
+  --gold-light: #D4AF6A;
+  --gold-pale: #ECD9A8;
+  --cream: #F5F0E8;
+  --bg-alt: #EDE7DB;
+  --dark: #1A2E2A;
+  --dark-mid: #223830;
+  --text: #2A2520;
+  --text-muted: #6B6358;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-gold uppercase tracking-[0.22em] text-[10px] font-sans font-medium;
+  }
+
+  .gold-rule {
+    @apply block w-12 h-px bg-gold mx-auto my-4;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-7 py-3 border border-gold text-gold font-sans text-sm tracking-widest uppercase transition-all duration-300 hover:bg-gold hover:text-cream;
+  }
+
+  .btn-filled {
+    @apply inline-flex items-center justify-center px-7 py-3 bg-gold text-cream font-sans text-sm tracking-widest uppercase transition-all duration-300 hover:bg-gold-light hover:text-dark;
+  }
+
+  .fade-up {
+    @apply opacity-0 translate-y-7;
+    animation: fadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section spacing defaults */
+section {
+  @apply py-24 lg:py-32;
+}
+
+/* Heading defaults */
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Smooth section transition */
+.section-cream {
+  background-color: var(--cream);
+}
+
+.section-alt {
+  background-color: var(--bg-alt);
+}
+
+.section-dark {
+  background-color: var(--dark);
+}
