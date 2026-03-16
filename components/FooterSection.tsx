@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Link from "next/link";
 
 function InstagramIcon() {
   return (
@@ -36,136 +36,109 @@ function LinkedInIcon() {
   );
 }
 
+const footerLinks = [
+  { label: "Home", href: "/" },
+  { label: "Über mich", href: "/ueber-mich" },
+  { label: "Angebote", href: "/angebote" },
+  { label: "Circle", href: "/circle" },
+  { label: "Kontakt", href: "/kontakt" },
+];
+
 export default function FooterSection() {
   return (
-    <footer id="kontakt" className="section-dark relative overflow-hidden">
-      {/* Decorative top line */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
+    <footer className="bg-surface-dark relative overflow-hidden">
+      {/* Subtle top border */}
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary-light/30 to-transparent" />
 
-      {/* Background glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-gold/3 blur-[120px] pointer-events-none" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
-        {/* Top CTA Block */}
-        <div className="text-center mb-20 lg:mb-24">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="eyebrow text-gold/60 mb-5"
-          >
-            Bereit?
-          </motion.p>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="font-serif text-4xl lg:text-6xl font-light text-cream leading-tight mb-4"
-          >
-            Bereit für den ersten Schritt?
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="font-sans text-cream/50 text-base mb-10 font-light"
-          >
-            Das Erstgespräch ist der Anfang.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-          >
-            <a
-              href="mailto:marcel.pickelmann@gmail.com"
-              className="btn-filled text-xs"
-            >
-              Erstgespräch buchen
-            </a>
-          </motion.div>
-        </div>
-
-        {/* Divider */}
-        <div className="border-t border-gold/10 mb-10" />
-
-        {/* Middle: Social + Contact */}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 mb-10">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pt-16 lg:pt-20 pb-10">
+        {/* Top section: Brand + Links + Social */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-14">
           {/* Brand */}
-          <div className="text-center lg:text-left">
-            <p className="font-serif text-gold text-xl font-light tracking-[0.12em] uppercase mb-1">
-              Deep Life
-            </p>
-            <p className="font-sans text-cream/30 text-xs tracking-[0.15em]">
-              Academy of Becoming
+          <div>
+            <Link href="/" className="inline-block mb-4">
+              <p className="font-serif text-white text-2xl font-semibold tracking-wide">
+                Deep Life
+              </p>
+            </Link>
+            <p className="font-sans text-white/40 text-sm leading-relaxed max-w-xs">
+              Academy of Becoming &ndash; Für Menschen, die mehr wollen als
+              Durchschnitt.
             </p>
           </div>
 
-          {/* Social Links */}
-          <div className="flex items-center gap-5">
-            <a
-              href="https://instagram.com/deeplifeevolutionhub"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-cream/40 hover:text-gold transition-colors duration-200 flex items-center gap-2"
-              aria-label="Instagram"
-            >
-              <InstagramIcon />
-              <span className="font-sans text-xs tracking-[0.1em] hidden sm:inline">
-                @deeplifeevolutionhub
-              </span>
-            </a>
+          {/* Navigation */}
+          <div>
+            <p className="font-sans text-white/60 text-xs tracking-[0.15em] uppercase font-medium mb-5">
+              Navigation
+            </p>
+            <ul className="space-y-3">
+              {footerLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="font-sans text-white/50 hover:text-accent text-sm transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            <span className="w-px h-4 bg-gold/20" />
+          {/* Contact & Social */}
+          <div>
+            <p className="font-sans text-white/60 text-xs tracking-[0.15em] uppercase font-medium mb-5">
+              Kontakt
+            </p>
+            <div className="space-y-3 mb-6">
+              <a
+                href="mailto:marcel.pickelmann@gmail.com"
+                className="font-sans text-white/50 hover:text-accent text-sm transition-colors duration-200 block"
+              >
+                marcel.pickelmann@gmail.com
+              </a>
+            </div>
 
-            <a
-              href="https://linkedin.com/in/marcelpickelmann"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-cream/40 hover:text-gold transition-colors duration-200 flex items-center gap-2"
-              aria-label="LinkedIn"
-            >
-              <LinkedInIcon />
-              <span className="font-sans text-xs tracking-[0.1em] hidden sm:inline">
-                marcelpickelmann
-              </span>
-            </a>
-
-            <span className="w-px h-4 bg-gold/20" />
-
-            <a
-              href="mailto:marcel.pickelmann@gmail.com"
-              className="font-sans text-cream/40 hover:text-gold text-xs tracking-[0.1em] transition-colors duration-200"
-            >
-              marcel.pickelmann@gmail.com
-            </a>
+            <div className="flex items-center gap-4">
+              <a
+                href="https://instagram.com/deeplifeevolutionhub"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/40 hover:text-accent transition-colors duration-200"
+                aria-label="Instagram"
+              >
+                <InstagramIcon />
+              </a>
+              <a
+                href="https://linkedin.com/in/marcelpickelmann"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/40 hover:text-accent transition-colors duration-200"
+                aria-label="LinkedIn"
+              >
+                <LinkedInIcon />
+              </a>
+            </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-gold/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="font-sans text-cream/25 text-xs tracking-[0.08em]">
-            © 2026 Deep Life Evolution Hub · Academy of Becoming · powered by
-            Marcel Pickelmann
+        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="font-sans text-white/25 text-xs tracking-wide">
+            &copy; 2026 Deep Life Evolution Hub &middot; Academy of Becoming
+            &middot; powered by Marcel Pickelmann
           </p>
 
           <div className="flex items-center gap-6">
             <a
               href="#datenschutz"
-              className="font-sans text-cream/30 hover:text-gold/60 text-xs tracking-[0.1em] transition-colors duration-200"
+              className="font-sans text-white/30 hover:text-white/60 text-xs transition-colors duration-200"
             >
               Datenschutz
             </a>
             <a
               href="#impressum"
-              className="font-sans text-cream/30 hover:text-gold/60 text-xs tracking-[0.1em] transition-colors duration-200"
+              className="font-sans text-white/30 hover:text-white/60 text-xs transition-colors duration-200"
             >
               Impressum
             </a>

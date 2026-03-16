@@ -9,15 +9,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        gold: "#B8892A",
-        "gold-light": "#D4AF6A",
-        "gold-pale": "#ECD9A8",
-        cream: "#F5F0E8",
-        "bg-alt": "#EDE7DB",
-        dark: "#1A2E2A",
-        "dark-mid": "#223830",
-        text: "#2A2520",
-        "text-muted": "#6B6358",
+        primary: {
+          DEFAULT: "#2D5A4F",
+          light: "#3D7A6B",
+          dark: "#1E3D35",
+        },
+        accent: {
+          DEFAULT: "#C4973B",
+          light: "#D4AF6A",
+          pale: "#E8D5A8",
+        },
+        surface: {
+          DEFAULT: "#FFFFFF",
+          alt: "#F5F8F7",
+          dark: "#1A2E2A",
+          "dark-mid": "#223830",
+        },
+        text: {
+          DEFAULT: "#1A1A1A",
+          muted: "#6B7280",
+          light: "#9CA3AF",
+        },
       },
       fontFamily: {
         serif: ["Cormorant Garamond", "serif"],
@@ -29,7 +41,7 @@ const config: Config = {
       },
       animation: {
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        "float": "float 6s ease-in-out infinite",
+        float: "float 6s ease-in-out infinite",
         "float-delayed": "float 6s ease-in-out 2s infinite",
       },
       keyframes: {

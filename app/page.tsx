@@ -1,27 +1,21 @@
-import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import ServicesSection from "@/components/ServicesSection";
-import CircleSection from "@/components/CircleSection";
-import ProcessSection from "@/components/ProcessSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import LeadMagnetSection from "@/components/LeadMagnetSection";
-import FooterSection from "@/components/FooterSection";
+import AboutTeaser from "@/components/AboutTeaser";
+import ServicesTeaser from "@/components/ServicesTeaser";
+import CircleTeaser from "@/components/CircleTeaser";
+import TestimonialsHome from "@/components/TestimonialsHome";
+import LeadMagnetHome from "@/components/LeadMagnetHome";
+import CtaSection from "@/components/CtaSection";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <ServicesSection />
-        <CircleSection />
-        <ProcessSection />
-        <TestimonialsSection />
-        <LeadMagnetSection />
-      </main>
-      <FooterSection />
+      <HeroSection />
+      <AboutTeaser />
+      <ServicesTeaser />
+      <CircleTeaser />
+      <TestimonialsHome />
+      <LeadMagnetHome />
+      <CtaSection />
     </>
   );
 }

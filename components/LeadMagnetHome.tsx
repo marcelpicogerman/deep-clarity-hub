@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-export default function LeadMagnetSection() {
+export default function LeadMagnetHome() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
@@ -15,14 +15,11 @@ export default function LeadMagnetSection() {
   };
 
   return (
-    <section className="section-dark py-24 lg:py-32 relative overflow-hidden">
-      {/* Background glow */}
+    <section className="section-padding bg-surface-dark relative overflow-hidden">
+      {/* Subtle glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-gold/5 blur-[100px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[120px]" />
       </div>
-
-      {/* Decorative top border */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
 
       <div className="relative z-10 max-w-2xl mx-auto px-6 text-center">
         {/* Icon */}
@@ -33,19 +30,9 @@ export default function LeadMagnetSection() {
           transition={{ duration: 0.7 }}
           className="mb-8 flex justify-center"
         >
-          <div className="w-16 h-16 rounded-full border border-gold/30 flex items-center justify-center">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#B8892A"
-              strokeWidth={1.2}
-              className="w-7 h-7"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-              />
+          <div className="w-16 h-16 rounded-full border border-accent/40 flex items-center justify-center">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#C4973B" strokeWidth={1.3} className="w-7 h-7">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
             </svg>
           </div>
         </motion.div>
@@ -55,7 +42,7 @@ export default function LeadMagnetSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="eyebrow text-gold/70 mb-5"
+          className="font-sans text-accent text-[11px] tracking-[0.22em] uppercase font-medium mb-5"
         >
           Kostenloser Guide
         </motion.p>
@@ -64,11 +51,11 @@ export default function LeadMagnetSection() {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-          className="font-serif text-3xl lg:text-4xl font-light text-cream leading-tight mb-4"
+          transition={{ duration: 0.85, delay: 0.15 }}
+          className="font-serif text-3xl lg:text-4xl font-light text-white leading-tight mb-4"
         >
           Dein kostenloser{" "}
-          <em className="italic text-gold-light">Deep Life Starter Guide</em>
+          <span className="text-accent-light">Deep Life Starter Guide</span>
         </motion.h2>
 
         <motion.p
@@ -76,7 +63,7 @@ export default function LeadMagnetSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.25 }}
-          className="font-sans text-cream/60 text-base leading-relaxed mb-10 font-light"
+          className="font-sans text-white/50 text-base leading-relaxed mb-10"
         >
           Die 8 Dimensionen des Deep Life Circle – mit Reflexionsfragen für
           jeden Bereich. Kostenlos.
@@ -97,27 +84,20 @@ export default function LeadMagnetSection() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="deine@email.de"
                 required
-                className="flex-1 bg-dark-mid border border-gold/20 text-cream placeholder:text-cream/30 font-sans text-sm px-5 py-3 focus:outline-none focus:border-gold/50 transition-colors duration-200"
+                className="flex-1 bg-white/10 border border-white/20 text-white placeholder:text-white/30 font-sans text-sm px-5 py-3.5 rounded-lg focus:outline-none focus:border-accent/60 transition-colors duration-200"
               />
-              <button
-                type="submit"
-                className="btn-filled text-xs whitespace-nowrap"
-              >
+              <button type="submit" className="btn-accent whitespace-nowrap">
                 Guide anfordern
               </button>
             </form>
           ) : (
-            <div className="border border-gold/30 p-6 text-center">
-              <p className="font-serif text-gold-light text-xl italic mb-1">
-                Danke.
-              </p>
-              <p className="font-sans text-cream/60 text-sm">
-                Der Guide ist auf dem Weg zu dir.
-              </p>
+            <div className="border border-accent/30 rounded-lg p-6 text-center">
+              <p className="font-serif text-accent-light text-xl italic mb-1">Danke.</p>
+              <p className="font-sans text-white/50 text-sm">Der Guide ist auf dem Weg zu dir.</p>
             </div>
           )}
 
-          <p className="font-sans text-cream/30 text-xs mt-4 tracking-[0.1em]">
+          <p className="font-sans text-white/25 text-xs mt-4 tracking-wide">
             Kein Spam. Nur Tiefe.
           </p>
         </motion.div>

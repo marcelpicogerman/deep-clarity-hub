@@ -1,19 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --gold: #B8892A;
-  --gold-light: #D4AF6A;
-  --gold-pale: #ECD9A8;
-  --cream: #F5F0E8;
-  --bg-alt: #EDE7DB;
-  --dark: #1A2E2A;
-  --dark-mid: #223830;
-  --text: #2A2520;
-  --text-muted: #6B6358;
+  --primary: #2D5A4F;
+  --primary-light: #3D7A6B;
+  --accent: #C4973B;
+  --accent-light: #D4AF6A;
+  --surface: #FFFFFF;
+  --surface-alt: #F5F8F7;
+  --surface-dark: #1A2E2A;
+  --text: #1A1A1A;
+  --text-muted: #6B7280;
 }
 
 html {
@@ -21,7 +21,7 @@ html {
 }
 
 body {
-  background-color: var(--cream);
+  background-color: var(--surface);
   color: var(--text);
   font-family: 'DM Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -30,24 +30,31 @@ body {
 
 @layer components {
   .eyebrow {
-    @apply text-gold uppercase tracking-[0.22em] text-[10px] font-sans font-medium;
+    @apply text-primary uppercase tracking-[0.22em] text-[11px] font-sans font-medium;
   }
 
-  .gold-rule {
-    @apply block w-12 h-px bg-gold mx-auto my-4;
+  .accent-rule {
+    @apply block w-12 h-px bg-accent mx-auto my-4;
   }
 
-  .btn {
-    @apply inline-flex items-center justify-center px-7 py-3 border border-gold text-gold font-sans text-sm tracking-widest uppercase transition-all duration-300 hover:bg-gold hover:text-cream;
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-7 py-3.5 bg-primary text-white font-sans text-sm tracking-wide font-medium rounded-lg transition-all duration-300 hover:bg-primary-light hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5;
   }
 
-  .btn-filled {
-    @apply inline-flex items-center justify-center px-7 py-3 bg-gold text-cream font-sans text-sm tracking-widest uppercase transition-all duration-300 hover:bg-gold-light hover:text-dark;
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-7 py-3.5 border-2 border-primary text-primary font-sans text-sm tracking-wide font-medium rounded-lg transition-all duration-300 hover:bg-primary hover:text-white;
   }
 
-  .fade-up {
-    @apply opacity-0 translate-y-7;
-    animation: fadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  .btn-accent {
+    @apply inline-flex items-center justify-center px-7 py-3.5 bg-accent text-white font-sans text-sm tracking-wide font-medium rounded-lg transition-all duration-300 hover:bg-accent-light hover:shadow-lg hover:shadow-accent/20;
+  }
+
+  .page-hero {
+    @apply pt-32 pb-16 lg:pt-40 lg:pb-20 bg-surface-alt;
+  }
+
+  .section-padding {
+    @apply py-20 lg:py-28;
   }
 }
 
@@ -58,25 +65,7 @@ body {
   }
 }
 
-/* Section spacing defaults */
-section {
-  @apply py-24 lg:py-32;
-}
-
 /* Heading defaults */
 h1, h2, h3, h4 {
   font-family: 'Cormorant Garamond', serif;
-}
-
-/* Smooth section transition */
-.section-cream {
-  background-color: var(--cream);
-}
-
-.section-alt {
-  background-color: var(--bg-alt);
-}
-
-.section-dark {
-  background-color: var(--dark);
 }
