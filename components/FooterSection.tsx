@@ -92,10 +92,10 @@ export default function FooterSection() {
             </p>
             <div className="space-y-3 mb-6">
               <a
-                href="mailto:marcel.pickelmann@gmail.com"
+                href="mailto:marcel@deeplifeevolutionhub.com"
                 className="font-sans text-white/50 hover:text-accent text-sm transition-colors duration-200 block"
               >
-                marcel.pickelmann@gmail.com
+                marcel@deeplifeevolutionhub.com
               </a>
             </div>
 
@@ -130,18 +130,18 @@ export default function FooterSection() {
           </p>
 
           <div className="flex items-center gap-6">
-            <a
-              href="#datenschutz"
+            <Link
+              href="/datenschutz"
               className="font-sans text-white/30 hover:text-white/60 text-xs transition-colors duration-200"
             >
               Datenschutz
-            </a>
-            <a
-              href="#impressum"
+            </Link>
+            <Link
+              href="/impressum"
               className="font-sans text-white/30 hover:text-white/60 text-xs transition-colors duration-200"
             >
               Impressum
-            </a>
+            </Link>
           </div>
         </div>
       </div>

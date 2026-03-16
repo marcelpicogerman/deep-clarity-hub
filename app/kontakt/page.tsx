@@ -93,10 +93,10 @@ export default function KontaktPage() {
                     <div>
                       <p className="font-sans text-text text-sm font-medium mb-1">E-Mail</p>
                       <a
-                        href="mailto:marcel.pickelmann@gmail.com"
+                        href="mailto:marcel@deeplifeevolutionhub.com"
                         className="font-sans text-text-muted text-sm hover:text-primary transition-colors"
                       >
-                        marcel.pickelmann@gmail.com
+                        marcel@deeplifeevolutionhub.com
                       </a>
                     </div>
                   </div>
