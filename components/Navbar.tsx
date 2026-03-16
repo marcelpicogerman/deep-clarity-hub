@@ -78,7 +78,7 @@ export default function Navbar() {
           href="/kontakt"
           className="hidden lg:inline-flex btn-primary text-[13px]"
         >
-          Erstgespräch buchen
+          Gespräch anfragen
         </Link>
 
         {/* Mobile Hamburger */}
@@ -131,7 +131,7 @@ export default function Navbar() {
               href="/kontakt"
               className="btn-primary text-sm w-full text-center"
             >
-              Erstgespräch buchen
+              Gespräch anfragen
             </Link>
           </li>
         </ul>

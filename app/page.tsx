@@ -3,7 +3,6 @@ import AboutTeaser from "@/components/AboutTeaser";
 import ServicesTeaser from "@/components/ServicesTeaser";
 import CircleTeaser from "@/components/CircleTeaser";
 import TestimonialsHome from "@/components/TestimonialsHome";
-import LeadMagnetHome from "@/components/LeadMagnetHome";
 import CtaSection from "@/components/CtaSection";
 
 export default function Home() {
@@ -14,7 +13,6 @@ export default function Home() {
       <ServicesTeaser />
       <CircleTeaser />
       <TestimonialsHome />
-      <LeadMagnetHome />
       <CtaSection />
     </>
   );

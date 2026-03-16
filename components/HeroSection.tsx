@@ -50,10 +50,10 @@ export default function HeroSection() {
           transition={{ ...transition, delay: 0.35 }}
           className="font-serif text-5xl sm:text-6xl lg:text-8xl font-light text-text leading-[1.05] mb-8"
         >
-          Dein Leben.
+          Identität ist der Ursprung.
           <br />
           <span className="text-primary font-light">
-            Tief & bewusst.
+            Wirkung ist die Konsequenz.
           </span>
         </motion.h1>
 
@@ -80,8 +80,8 @@ export default function HeroSection() {
           transition={{ ...transition, delay: 0.6 }}
           className="font-sans text-text-muted text-base lg:text-lg leading-relaxed max-w-xl mb-12"
         >
-          Für Menschen, die mehr wollen als Durchschnitt – und bereit sind, den
-          Weg wirklich zu gehen.
+          Für Unternehmer, die verstanden haben: Das Außen wächst nur so weit
+          wie das Innen trägt.
         </motion.p>
 
         {/* CTAs */}

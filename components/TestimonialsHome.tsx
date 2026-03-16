@@ -5,21 +5,21 @@ import { motion } from "framer-motion";
 const testimonials = [
   {
     quote:
-      "Marcel stellt die Fragen, die man sich selbst nicht traut zu stellen. Nach unserem Gespräch war mir vieles klarer.",
-    name: "Thomas K.",
-    role: "Unternehmer",
+      "Marcel stellt die Fragen, die andere nicht stellen — und lässt sie wirken.",
+    name: "Klaus Eisenblätter",
+    role: "Unternehmer · Mentor",
   },
   {
     quote:
-      "Der Deep Life Circle hat mir gezeigt, wo ich wirklich stehe – nicht wo ich dachte zu stehen.",
-    name: "Sabine M.",
-    role: "Führungskraft",
+      "Selten jemanden erlebt, der so präzise sieht, was wirklich dahinter steckt.",
+    name: "[Präsident Investmentclub]",
+    role: "Präsident · [Clubname]",
   },
   {
     quote:
-      "Keine Floskeln, keine vorgefertigten Antworten. Nur echte Auseinandersetzung mit dem, was zählt.",
-    name: "Markus R.",
-    role: "",
+      "Die Arbeit mit Marcel geht tiefer als jedes Seminar, das ich kenne.",
+    name: "Sam [Nachname]",
+    role: "Pallas Seminare",
   },
 ];
 
@@ -45,7 +45,7 @@ export default function TestimonialsHome() {
             transition={{ duration: 0.85, delay: 0.1 }}
             className="font-serif text-3xl lg:text-5xl font-light text-text"
           >
-            Was Menschen sagen
+            Stimmen aus dem Netzwerk
           </motion.h2>
         </div>
 
@@ -67,26 +67,17 @@ export default function TestimonialsHome() {
 
               <div className="w-8 h-0.5 bg-accent rounded-full mb-6" />
 
-              <blockquote className="font-serif text-lg lg:text-xl font-light text-text leading-relaxed italic mb-6">
+              <blockquote className="font-serif text-lg lg:text-xl font-light text-text leading-relaxed italic mb-8">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
 
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
-                  <span className="font-serif text-white text-sm font-light">
-                    {t.name.charAt(0)}
-                  </span>
-                </div>
-                <div>
-                  <p className="font-sans text-text text-sm font-medium">
-                    {t.name}
-                  </p>
-                  {t.role && (
-                    <p className="font-sans text-text-muted text-xs">
-                      {t.role}
-                    </p>
-                  )}
-                </div>
+              <div>
+                <p className="font-sans text-text text-sm font-semibold">
+                  {t.name}
+                </p>
+                <p className="font-sans text-text-muted text-xs mt-0.5">
+                  {t.role}
+                </p>
               </div>
             </motion.div>
           ))}

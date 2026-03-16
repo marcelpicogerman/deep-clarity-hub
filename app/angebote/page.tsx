@@ -11,13 +11,15 @@ const services = [
       </svg>
     ),
     title: "Erstgespräch",
+    price: "350 €",
     description:
-      "Orientierung. Klarheit über den nächsten Schritt. Kein Verkaufsgespräch – ein echtes Gespräch. Du verstehst, wo du stehst und was dich weiterbringt.",
+      "Kein Verkaufsgespräch. Ein echtes Gespräch. Du bekommst Marcel — nicht einen Assistenten, nicht ein Formular.",
     details: [
-      "Ca. 30–45 Minuten",
-      "Kostenlos & unverbindlich",
-      "Per Video oder Telefon",
-      "Ehrliche Standortbestimmung",
+      "60 Minuten",
+      "1:1 mit Marcel persönlich",
+      "Strukturierte Standortbestimmung",
+      "Ehrliche Einschätzung — keine Schonung",
+      "Investition: 350 €",
     ],
   },
   {
@@ -54,6 +56,22 @@ const services = [
       "Ganzheitlicher Ansatz",
     ],
   },
+];
+
+const iAmItems = [
+  "Ein persönliches Gegenüber — jede Session, ohne Ausnahme",
+  "Fragensteller, der bei unbequemen Antworten bleibt",
+  "Unternehmerischer Blick, systemisches Denken",
+  "Connector zu einem handverlesenen Netzwerk",
+  "Diskret. Was hier besprochen wird, bleibt hier.",
+];
+
+const iAmNotItems = [
+  "Kein zertifizierter Coach mit Methodenkoffer",
+  "Kein Motivationssprecher. Keine schnellen Antworten.",
+  "Keine Heilsversprechen. Keine Umsatzgarantien.",
+  "Keine Agentur — du bekommst niemals einen Assistenten",
+  "Nicht für jeden geeignet. Das ist keine Marketing-Phrase.",
 ];
 
 const steps = [
@@ -116,7 +134,7 @@ export default function AngebotePage() {
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="space-y-8 lg:space-y-12">
-            {services.map((service, i) => (
+            {services.map((service) => (
               <motion.div
                 key={service.title}
                 initial={{ opacity: 0, y: 28 }}
@@ -128,9 +146,16 @@ export default function AngebotePage() {
                 {/* Left: Icon + Title + Description */}
                 <div className="lg:col-span-3 space-y-4">
                   <div className="text-primary mb-2">{service.icon}</div>
-                  <h2 className="font-serif text-2xl lg:text-3xl font-light text-text">
-                    {service.title}
-                  </h2>
+                  <div className="flex items-baseline gap-4">
+                    <h2 className="font-serif text-2xl lg:text-3xl font-light text-text">
+                      {service.title}
+                    </h2>
+                    {"price" in service && service.price && (
+                      <span className="font-serif text-2xl lg:text-3xl font-light text-accent">
+                        {service.price}
+                      </span>
+                    )}
+                  </div>
                   <div className="w-10 h-px bg-accent/50" />
                   <p className="font-sans text-text-muted text-base leading-relaxed">
                     {service.description}
@@ -156,6 +181,79 @@ export default function AngebotePage() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Was ich bin / Was ich nicht bin */}
+      <section className="section-padding bg-white">
+        <div className="max-w-5xl mx-auto px-6 lg:px-10">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.85 }}
+            className="text-center mb-14"
+          >
+            <p className="eyebrow mb-4">Klartext</p>
+            <h2 className="font-serif text-3xl lg:text-5xl font-light text-text">
+              Was ich bin. Was ich nicht bin.
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
+            {/* Das bin ich */}
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.85, delay: 0.1 }}
+              className="border border-accent/30 rounded-2xl p-8 lg:p-10 bg-accent/[0.03]"
+            >
+              <h3 className="font-serif text-xl lg:text-2xl font-light text-accent mb-6">
+                Das bin ich
+              </h3>
+              <ul className="space-y-4">
+                {iAmItems.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-2" />
+                    <span className="font-sans text-text text-sm leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Das bin ich nicht */}
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.85, delay: 0.2 }}
+              className="border border-gray-200 rounded-2xl p-8 lg:p-10 bg-gray-50/50"
+            >
+              <h3 className="font-serif text-xl lg:text-2xl font-light text-text-muted mb-6">
+                Das bin ich nicht
+              </h3>
+              <ul className="space-y-4">
+                {iAmNotItems.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0 mt-2" />
+                    <span className="font-sans text-text-muted text-sm leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+
+          {/* Bottom disclaimer */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="text-center mt-10 font-serif text-text-muted text-sm italic"
+          >
+            Wenn du dir nicht sicher bist, ob das für dich ist — dann ist es wahrscheinlich nicht für dich.
+          </motion.p>
         </div>
       </section>
 
@@ -245,7 +343,7 @@ export default function AngebotePage() {
             className="text-center mt-16"
           >
             <Link href="/kontakt" className="btn-primary">
-              Jetzt beginnen
+              Gespräch anfragen
             </Link>
           </motion.div>
         </div>

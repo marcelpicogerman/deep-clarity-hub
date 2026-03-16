@@ -11,7 +11,7 @@ const services = [
       </svg>
     ),
     title: "Erstgespräch",
-    description: "Orientierung. Klarheit über den nächsten Schritt. Kein Verkaufsgespräch – ein echtes Gespräch.",
+    description: "60 Minuten. 1:1 mit Marcel. Strukturierte Standortbestimmung. 350 €",
   },
   {
     icon: (

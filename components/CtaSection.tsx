@@ -34,7 +34,7 @@ export default function CtaSection() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="font-sans text-text-muted text-base lg:text-lg mb-10"
         >
-          Das Erstgespräch ist der Anfang. Unverbindlich, ehrlich, auf Augenhöhe.
+          Ein Gespräch. Kein Pitch. Kein Versprechen außer Ehrlichkeit.
         </motion.p>
 
         <motion.div
@@ -44,7 +44,7 @@ export default function CtaSection() {
           transition={{ duration: 0.7, delay: 0.3 }}
         >
           <Link href="/kontakt" className="btn-primary text-base px-10 py-4">
-            Erstgespräch buchen
+            Gespräch anfragen
           </Link>
         </motion.div>
       </div>
