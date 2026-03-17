@@ -1,3 +1,11 @@
 {
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.deeplifeevolutionhub.de" }],
+      "destination": "https://deeplifeevolutionhub.de/$1",
+      "permanent": true
+    }
+  ]
 }

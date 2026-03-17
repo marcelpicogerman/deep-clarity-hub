@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import CookieBanner from "@/components/CookieBanner";
@@ -21,7 +23,11 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Deep Life Evolution Hub – Academy of Becoming",
+  metadataBase: new URL("https://deeplifeevolutionhub.de"),
+  title: {
+    default: "Deep Life Evolution Hub – Academy of Becoming",
+    template: "%s | Deep Life Evolution Hub",
+  },
   description:
     "Für Menschen, die mehr wollen als Durchschnitt – und bereit sind, den Weg wirklich zu gehen. Marcel Pickelmann: Unternehmer · Connector · Strategischer Begleiter.",
   keywords: [
@@ -38,6 +44,15 @@ export const metadata: Metadata = {
     description:
       "Für Menschen, die mehr wollen als Durchschnitt – und bereit sind, den Weg wirklich zu gehen.",
     type: "website",
+    siteName: "Deep Life Evolution Hub",
+    locale: "de_DE",
+    url: "https://deeplifeevolutionhub.de",
+  },
+  twitter: {
+    card: "summary",
+    title: "Deep Life Evolution Hub – Academy of Becoming",
+    description:
+      "Für Menschen, die mehr wollen als Durchschnitt – und bereit sind, den Weg wirklich zu gehen.",
   },
 };
 
@@ -46,13 +61,40 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Deep Life Evolution Hub",
+    url: "https://deeplifeevolutionhub.de",
+    description:
+      "Academy of Becoming – Für Menschen, die mehr wollen als Durchschnitt.",
+    founder: {
+      "@type": "Person",
+      name: "Marcel Pickelmann",
+      jobTitle: "Director",
+    },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Office 620, Initial Business Centre, Wilson Business Park",
+      addressLocality: "Manchester",
+      postalCode: "M40 8WN",
+      addressCountry: "GB",
+    },
+  };
+
   return (
     <html lang="de" className={`${cormorant.variable} ${dmSans.variable}`}>
       <body className="font-sans antialiased bg-white text-text">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <FooterSection />
         <CookieBanner />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
