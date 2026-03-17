@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -45,11 +46,17 @@ export default function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-6 lg:px-10 h-16 lg:h-20 flex items-center justify-between">
         {/* Wordmark */}
-        <Link
-          href="/"
-          className="font-serif text-primary text-xl lg:text-2xl font-semibold tracking-wide"
-        >
-          Deep Life
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src="/logo-light.png"
+            alt="Deep Life Evolution Hub"
+            width={36}
+            height={36}
+            className="w-8 h-8 lg:w-9 lg:h-9"
+          />
+          <span className="font-serif text-primary text-xl lg:text-2xl font-semibold tracking-wide">
+            Deep Life
+          </span>
         </Link>
 
         {/* Desktop Nav Links */}

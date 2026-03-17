@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function AboutTeaser() {
@@ -18,15 +19,14 @@ export default function AboutTeaser() {
           >
             <div className="relative">
               <div className="absolute -inset-4 rounded-2xl bg-surface-alt" />
-              <div className="relative w-64 h-64 lg:w-80 lg:h-80 rounded-2xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center">
-                <div className="relative flex flex-col items-center justify-center">
-                  <span className="font-serif text-white text-6xl lg:text-7xl font-light tracking-widest">
-                    MP
-                  </span>
-                  <span className="font-sans text-white/50 text-[10px] tracking-[0.25em] uppercase mt-2">
-                    Marcel Pickelmann
-                  </span>
-                </div>
+              <div className="relative w-64 h-64 lg:w-80 lg:h-80 rounded-2xl overflow-hidden">
+                <Image
+                  src="/marcel-casual.png"
+                  alt="Marcel Pickelmann"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 256px, 320px"
+                />
               </div>
             </div>
           </motion.div>
