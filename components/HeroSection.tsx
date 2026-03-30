@@ -8,7 +8,7 @@ const fadeUp = {
   initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0 },
 };
-const transition = { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const };
+const transition = { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const };
 
 const stats = [
   { value: "10+", label: "Jahre Unternehmertum" },
@@ -33,7 +33,7 @@ export default function HeroSection() {
         <motion.span
           initial={{ scaleX: 0, opacity: 0 }}
           animate={{ scaleX: 1, opacity: 1 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.05 }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1], delay: 0.02 }}
           className="origin-left block w-14 h-px bg-accent mb-6"
         />
 
@@ -42,7 +42,7 @@ export default function HeroSection() {
           variants={fadeUp}
           initial="initial"
           animate="animate"
-          transition={{ ...transition, delay: 0.12 }}
+          transition={{ ...transition, delay: 0.06 }}
           className="font-sans text-accent text-[11px] tracking-[0.3em] uppercase font-medium mb-4"
         >
           Deep Life Evolution Hub
@@ -53,7 +53,7 @@ export default function HeroSection() {
           variants={fadeUp}
           initial="initial"
           animate="animate"
-          transition={{ ...transition, delay: 0.22 }}
+          transition={{ ...transition, delay: 0.11 }}
           className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white leading-[1.06] mb-5"
         >
           Identität ist
@@ -70,7 +70,7 @@ export default function HeroSection() {
           variants={fadeUp}
           initial="initial"
           animate="animate"
-          transition={{ ...transition, delay: 0.32 }}
+          transition={{ ...transition, delay: 0.16 }}
           className="flex items-center gap-4 mb-5"
         >
           <span className="block w-8 h-px bg-accent/50" />
@@ -84,7 +84,7 @@ export default function HeroSection() {
           variants={fadeUp}
           initial="initial"
           animate="animate"
-          transition={{ ...transition, delay: 0.38 }}
+          transition={{ ...transition, delay: 0.19 }}
           className="font-sans text-white/65 text-base md:text-[17px] leading-relaxed max-w-[440px] mb-8"
         >
           Für Unternehmer, die verstanden haben: Das Außen wächst nur so weit
@@ -96,7 +96,7 @@ export default function HeroSection() {
           variants={fadeUp}
           initial="initial"
           animate="animate"
-          transition={{ ...transition, delay: 0.45 }}
+          transition={{ ...transition, delay: 0.22 }}
           className="flex flex-col sm:flex-row items-start gap-4 mb-10 lg:mb-14"
         >
           <Link href="/kontakt" className="btn-accent min-w-[200px]">
@@ -111,7 +111,7 @@ export default function HeroSection() {
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.7 }}
+          transition={{ delay: 0.3, duration: 0.4 }}
           className="flex flex-wrap items-start gap-8 lg:gap-12 border-t border-white/10 pt-7"
         >
           {stats.map((stat, i) => (
@@ -164,7 +164,7 @@ export default function HeroSection() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.8, duration: 0.8 }}
+        transition={{ delay: 0.4, duration: 0.4 }}
         className="absolute bottom-5 right-6 z-20 hidden lg:flex flex-col items-end gap-0.5"
       >
         <span className="font-sans text-[10px] tracking-[0.22em] uppercase text-white/25">
@@ -179,7 +179,7 @@ export default function HeroSection() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.9, duration: 0.8 }}
+        transition={{ delay: 0.45, duration: 0.4 }}
         className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 hidden lg:flex flex-col items-center gap-2"
       >
         <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-white/20">

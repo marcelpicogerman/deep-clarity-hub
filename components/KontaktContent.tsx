@@ -70,7 +70,7 @@ export default function KontaktContent() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.4 }}
             className="eyebrow mb-4"
           >
             Kontakt
@@ -78,7 +78,7 @@ export default function KontaktContent() {
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, delay: 0.1 }}
+            transition={{ duration: 0.4, delay: 0.05 }}
             className="font-serif text-4xl lg:text-6xl font-light text-text leading-tight mb-4"
           >
             Bereit für den ersten Schritt?
@@ -86,7 +86,7 @@ export default function KontaktContent() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             className="font-sans text-text-muted text-base lg:text-lg max-w-xl mx-auto"
           >
             Das Erstgespräch ist der Anfang. Unverbindlich, ehrlich, auf Augenhöhe.
@@ -102,8 +102,8 @@ export default function KontaktContent() {
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.85 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.55 }}
               className="lg:col-span-2 space-y-8"
             >
               <div>
@@ -182,8 +182,8 @@ export default function KontaktContent() {
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.85, delay: 0.1 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.55, delay: 0.05 }}
               className="lg:col-span-3"
             >
               <div className="bg-surface-alt rounded-2xl p-8 lg:p-10">

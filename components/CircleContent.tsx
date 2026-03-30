@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useState } from "react";
 
 const segments = [
   {
@@ -46,7 +47,7 @@ const segments = [
   },
 ];
 
-function DeepLifeCircle() {
+function DeepLifeCircle({ activeIndex, onSelect }: { activeIndex: number | null; onSelect: (i: number) => void }) {
   const cx = 200;
   const cy = 200;
   const outerR = 170;
@@ -86,15 +87,15 @@ function DeepLifeCircle() {
       <circle cx={cx} cy={cy} r={outerR + 8} fill="none" stroke="#2D5A4F" strokeWidth="0.3" opacity="0.15" />
 
       {/* Segments */}
-      {segments8.map((seg) => (
-        <g key={seg.name} className="group cursor-default">
+      {segments8.map((seg, i) => (
+        <g key={seg.name} className="cursor-pointer" onClick={() => onSelect(i)}>
           <path
             d={seg.path}
-            fill="#2D5A4F"
-            fillOpacity={seg.opacity}
-            stroke="#FFFFFF"
-            strokeWidth="2"
-            className="transition-all duration-300 group-hover:fill-[#3D7A6B]"
+            fill={activeIndex === i ? "#3D7A6B" : "#2D5A4F"}
+            fillOpacity={activeIndex === i ? 1 : seg.opacity}
+            stroke={activeIndex === i ? "#C4973B" : "#FFFFFF"}
+            strokeWidth={activeIndex === i ? 2.5 : 2}
+            className="transition-all duration-300 hover:fill-[#3D7A6B]"
           />
           <text
             x={seg.lx}
@@ -136,6 +137,8 @@ function DeepLifeCircle() {
 }
 
 export default function CircleContent() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
   return (
     <>
       {/* Page Hero */}
@@ -144,7 +147,7 @@ export default function CircleContent() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.4 }}
             className="eyebrow mb-4"
           >
             Der Kompass
@@ -152,7 +155,7 @@ export default function CircleContent() {
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.05 }}
             className="font-serif text-4xl lg:text-6xl font-light text-text leading-tight mb-4"
           >
             Der Deep Life Circle
@@ -160,10 +163,10 @@ export default function CircleContent() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             className="font-sans text-text-muted text-base lg:text-lg max-w-lg mx-auto"
           >
-            Acht Dimensionen eines gelebten Lebens – kein Framework, sondern ein Spiegel.
+            Acht Dimensionen eines gelebten Lebens – kein Framework, sondern ein Spiegel. Klicke auf eine Dimension.
           </motion.p>
         </div>
       </section>
@@ -174,22 +177,36 @@ export default function CircleContent() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="mb-8"
           >
-            <DeepLifeCircle />
+            <DeepLifeCircle activeIndex={activeIndex} onSelect={(i) => setActiveIndex(activeIndex === i ? null : i)} />
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="font-serif italic text-primary text-center text-xl lg:text-2xl"
-          >
-            Wo stehst du – wirklich?
-          </motion.p>
+          {/* Active segment detail */}
+          {activeIndex !== null ? (
+            <motion.div
+              key={activeIndex}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="max-w-lg mx-auto text-center bg-surface-alt border border-primary/20 rounded-xl p-6 mb-6"
+            >
+              <h3 className="font-serif text-xl text-primary mb-2">{segments[activeIndex].name}</h3>
+              <p className="font-sans text-text-muted text-sm leading-relaxed">{segments[activeIndex].description}</p>
+            </motion.div>
+          ) : (
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.4, delay: 0.15 }}
+              className="font-serif italic text-primary text-center text-xl lg:text-2xl"
+            >
+              Wo stehst du – wirklich?
+            </motion.p>
+          )}
         </div>
       </section>
 
@@ -200,8 +217,8 @@ export default function CircleContent() {
             <motion.h2
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.85 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.55 }}
               className="font-serif text-3xl lg:text-4xl font-light text-text"
             >
               Die 8 Dimensionen
@@ -214,8 +231,8 @@ export default function CircleContent() {
                 key={seg.name}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.05 * i }}
+                viewport={{ once: true, amount: 0.05 }}
+                transition={{ duration: 0.5, delay: 0.025 * i }}
                 className="bg-white border border-gray-200 rounded-xl p-6 hover:border-primary/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
               >
                 <div className="flex items-center gap-3 mb-3">
@@ -237,8 +254,8 @@ export default function CircleContent() {
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.85 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.55 }}
           >
             <h2 className="font-serif text-3xl lg:text-4xl font-light text-text mb-6">
               Die Philosophie dahinter

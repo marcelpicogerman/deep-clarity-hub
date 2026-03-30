@@ -19,7 +19,7 @@ const services = [
       "1:1 mit Marcel persönlich",
       "Strukturierte Standortbestimmung",
       "Ehrliche Einschätzung — keine Schonung",
-      "Investition: 350 €",
+      "Investition: 350 € (Executive Coaches berechnen 500–1.000 €)",
     ],
   },
   {
@@ -106,7 +106,7 @@ export default function AngeboteContent() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.4 }}
             className="eyebrow mb-4"
           >
             Einstieg
@@ -114,7 +114,7 @@ export default function AngeboteContent() {
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, delay: 0.1 }}
+            transition={{ duration: 0.4, delay: 0.05 }}
             className="font-serif text-4xl lg:text-6xl font-light text-text leading-tight mb-4"
           >
             Wie du anfängst
@@ -122,7 +122,7 @@ export default function AngeboteContent() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             className="font-sans text-text-muted text-base lg:text-lg max-w-xl mx-auto"
           >
             Drei Wege, die dich weiterbringen – individuell, ehrlich und an deiner Realität ausgerichtet.
@@ -130,8 +130,80 @@ export default function AngeboteContent() {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Was ich bin / Was ich nicht bin - FIRST (strongest content) */}
       <section className="section-padding bg-white">
+        <div className="max-w-5xl mx-auto px-6 lg:px-10">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-14"
+          >
+            <p className="eyebrow mb-4">Klartext</p>
+            <h2 className="font-serif text-3xl lg:text-5xl font-light text-text">
+              Was ich bin. Was ich nicht bin.
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
+            {/* Das bin ich */}
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.5, delay: 0.05 }}
+              className="border border-accent/30 rounded-2xl p-8 lg:p-10 bg-accent/[0.03]"
+            >
+              <h3 className="font-serif text-xl lg:text-2xl font-light text-accent mb-6">
+                Das bin ich
+              </h3>
+              <ul className="space-y-4">
+                {iAmItems.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-2" />
+                    <span className="font-sans text-text text-sm leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Das bin ich nicht */}
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="border border-gray-200 rounded-2xl p-8 lg:p-10 bg-gray-50/50"
+            >
+              <h3 className="font-serif text-xl lg:text-2xl font-light text-text-muted mb-6">
+                Das bin ich nicht
+              </h3>
+              <ul className="space-y-4">
+                {iAmNotItems.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0 mt-2" />
+                    <span className="font-sans text-text-muted text-sm leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-center mt-10 font-serif text-text-muted text-sm italic"
+          >
+            Wenn du dir nicht sicher bist, ob das für dich ist — dann ist es wahrscheinlich nicht für dich.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="section-padding bg-surface-alt">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="space-y-8 lg:space-y-12">
             {services.map((service) => (
@@ -139,8 +211,8 @@ export default function AngeboteContent() {
                 key={service.title}
                 initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+                viewport={{ once: true, amount: 0.05 }}
+                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.05 }}
                 className="grid lg:grid-cols-5 gap-8 lg:gap-12 bg-surface-alt border border-gray-200 rounded-2xl p-8 lg:p-12 hover:border-primary/20 transition-all duration-300"
               >
                 {/* Left: Icon + Title + Description */}
@@ -184,79 +256,6 @@ export default function AngeboteContent() {
         </div>
       </section>
 
-      {/* Was ich bin / Was ich nicht bin */}
-      <section className="section-padding bg-white">
-        <div className="max-w-5xl mx-auto px-6 lg:px-10">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.85 }}
-            className="text-center mb-14"
-          >
-            <p className="eyebrow mb-4">Klartext</p>
-            <h2 className="font-serif text-3xl lg:text-5xl font-light text-text">
-              Was ich bin. Was ich nicht bin.
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
-            {/* Das bin ich */}
-            <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.85, delay: 0.1 }}
-              className="border border-accent/30 rounded-2xl p-8 lg:p-10 bg-accent/[0.03]"
-            >
-              <h3 className="font-serif text-xl lg:text-2xl font-light text-accent mb-6">
-                Das bin ich
-              </h3>
-              <ul className="space-y-4">
-                {iAmItems.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-2" />
-                    <span className="font-sans text-text text-sm leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* Das bin ich nicht */}
-            <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.85, delay: 0.2 }}
-              className="border border-gray-200 rounded-2xl p-8 lg:p-10 bg-gray-50/50"
-            >
-              <h3 className="font-serif text-xl lg:text-2xl font-light text-text-muted mb-6">
-                Das bin ich nicht
-              </h3>
-              <ul className="space-y-4">
-                {iAmNotItems.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0 mt-2" />
-                    <span className="font-sans text-text-muted text-sm leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          </div>
-
-          {/* Bottom disclaimer */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="text-center mt-10 font-serif text-text-muted text-sm italic"
-          >
-            Wenn du dir nicht sicher bist, ob das für dich ist — dann ist es wahrscheinlich nicht für dich.
-          </motion.p>
-        </div>
-      </section>
-
       {/* Process Section */}
       <section className="section-padding bg-surface-alt">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -264,8 +263,8 @@ export default function AngeboteContent() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.5 }}
               className="eyebrow mb-4"
             >
               Ablauf
@@ -273,8 +272,8 @@ export default function AngeboteContent() {
             <motion.h2
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.85, delay: 0.1 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.55, delay: 0.05 }}
               className="font-serif text-3xl lg:text-5xl font-light text-text"
             >
               Wie es beginnt
@@ -289,8 +288,8 @@ export default function AngeboteContent() {
                 key={step.number}
                 initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.85, delay: 0.15 * i }}
+                viewport={{ once: true, amount: 0.05 }}
+                transition={{ duration: 0.55, delay: 0.07 * i }}
                 className="flex flex-col items-center text-center px-6 relative"
               >
                 <div className="relative z-10 w-28 h-28 rounded-full border-2 border-primary/30 bg-white flex flex-col items-center justify-center mb-6 hover:border-primary transition-colors duration-300">
@@ -314,8 +313,8 @@ export default function AngeboteContent() {
                 key={step.number}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.1 * i }}
+                viewport={{ once: true, amount: 0.05 }}
+                transition={{ duration: 0.5, delay: 0.05 * i }}
                 className="flex gap-6 relative"
               >
                 <div className="flex flex-col items-center">
@@ -338,8 +337,8 @@ export default function AngeboteContent() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.4 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             className="text-center mt-16"
           >
             <Link href="/kontakt" className="btn-primary">

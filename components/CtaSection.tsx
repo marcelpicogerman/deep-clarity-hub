@@ -35,8 +35,8 @@ export default function CtaSection() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.5 }}
           className="font-sans text-accent text-[11px] tracking-[0.32em] uppercase font-medium mb-5"
         >
           Bereit für den nächsten Schritt?
@@ -46,8 +46,8 @@ export default function CtaSection() {
         <motion.h2
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.05 }}
           className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light text-white leading-tight mb-6"
         >
           Ein Gespräch.
@@ -59,8 +59,8 @@ export default function CtaSection() {
         <motion.span
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
           className="origin-center block w-12 h-px bg-accent/50 mx-auto mb-6"
         />
 
@@ -68,8 +68,8 @@ export default function CtaSection() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.25 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.5, delay: 0.12 }}
           className="font-sans text-white/50 text-base lg:text-lg mb-10 max-w-md mx-auto leading-relaxed"
         >
           Kein Versprechen außer Ehrlichkeit. 60 Minuten, die zeigen, was
@@ -80,8 +80,8 @@ export default function CtaSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.35 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.5, delay: 0.17 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Link href="/kontakt" className="btn-accent text-base px-10 py-4 w-full sm:w-auto min-w-[220px]">
@@ -96,8 +96,8 @@ export default function CtaSection() {
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.5 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
           className="font-sans text-[11px] tracking-[0.12em] text-white/35 mt-8"
         >
           Deep Life Evolution Hub Ltd · UK Company #17052482

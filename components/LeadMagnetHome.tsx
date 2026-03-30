@@ -26,7 +26,7 @@ export default function LeadMagnetHome() {
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 0.7 }}
           className="mb-8 flex justify-center"
         >
@@ -40,7 +40,7 @@ export default function LeadMagnetHome() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 0.7, delay: 0.1 }}
           className="font-sans text-accent text-[11px] tracking-[0.22em] uppercase font-medium mb-5"
         >
@@ -50,7 +50,7 @@ export default function LeadMagnetHome() {
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 0.85, delay: 0.15 }}
           className="font-serif text-3xl lg:text-4xl font-light text-white leading-tight mb-4"
         >
@@ -61,7 +61,7 @@ export default function LeadMagnetHome() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 0.7, delay: 0.25 }}
           className="font-sans text-white/50 text-base leading-relaxed mb-10"
         >
@@ -73,7 +73,7 @@ export default function LeadMagnetHome() {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 0.7, delay: 0.35 }}
         >
           {!submitted ? (

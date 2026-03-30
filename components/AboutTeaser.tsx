@@ -14,8 +14,8 @@ export default function AboutTeaser() {
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="flex justify-center md:justify-end"
           >
             <div className="relative">
@@ -39,8 +39,8 @@ export default function AboutTeaser() {
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.5, delay: 0.05 }}
               className="eyebrow"
             >
               Über Marcel
@@ -49,8 +49,8 @@ export default function AboutTeaser() {
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.07 }}
               className="font-serif text-3xl md:text-4xl lg:text-[42px] font-light text-text leading-tight"
             >
               Marcel Pickelmann
@@ -59,8 +59,8 @@ export default function AboutTeaser() {
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               className="font-sans text-text-muted text-sm tracking-wide"
             >
               Unternehmer &middot; Connector &middot; Strategischer Begleiter
@@ -70,16 +70,16 @@ export default function AboutTeaser() {
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.25 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.5, delay: 0.12 }}
               className="origin-left w-10 h-px bg-accent"
             />
 
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.28 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.5, delay: 0.14 }}
               className="font-sans text-text-muted leading-relaxed text-base md:text-lg"
             >
               Marcel ist kein klassischer Coach. Er ist Fragensteller,
@@ -90,8 +90,8 @@ export default function AboutTeaser() {
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.32 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.5, delay: 0.16 }}
               className="pt-2"
             >
               <Link href="/ueber-mich" className="btn-primary text-sm">

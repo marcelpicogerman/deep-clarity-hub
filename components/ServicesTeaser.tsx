@@ -41,8 +41,8 @@ export default function ServicesTeaser() {
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.5 }}
               className="eyebrow mb-4"
             >
               Angebote
@@ -50,8 +50,8 @@ export default function ServicesTeaser() {
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.05 }}
               className="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-text leading-tight"
             >
               Wie du anfängst.
@@ -62,8 +62,8 @@ export default function ServicesTeaser() {
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.5, delay: 0.07 }}
             className="font-sans text-text-muted text-base leading-relaxed md:max-w-sm md:ml-auto"
           >
             Keine Standardpakete. Keine Copy-Paste-Methoden. Jeder Mensch
@@ -78,11 +78,11 @@ export default function ServicesTeaser() {
               key={service.title}
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.05 }}
               transition={{
-                duration: 0.8,
+                duration: 0.5,
                 ease: [0.22, 1, 0.36, 1],
-                delay: 0.08 * (i + 1),
+                delay: 0.04 * (i + 1),
               }}
               className="group bg-white rounded-2xl p-7 lg:p-8 shadow-card border-l-2 border-transparent hover:border-l-accent hover:-translate-y-2.5 hover:shadow-card-hover transition-all duration-400"
             >
@@ -119,8 +119,8 @@ export default function ServicesTeaser() {
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
           className="flex justify-center"
         >
           <Link href="/angebote" className="btn-outline text-sm">

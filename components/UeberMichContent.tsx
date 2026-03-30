@@ -13,8 +13,8 @@ const credentials = [
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.85, ease: [0.22, 1, 0.36, 1] as const, delay },
+  viewport: { once: true, amount: 0.05 },
+  transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const, delay: delay / 2 },
 });
 
 export default function UeberMichContent() {
@@ -26,7 +26,7 @@ export default function UeberMichContent() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.4 }}
             className="eyebrow mb-4"
           >
             Über Marcel
@@ -34,7 +34,7 @@ export default function UeberMichContent() {
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, delay: 0.1 }}
+            transition={{ duration: 0.4, delay: 0.05 }}
             className="font-serif text-4xl lg:text-6xl font-light text-text leading-tight mb-4"
           >
             Marcel Pickelmann
@@ -42,7 +42,7 @@ export default function UeberMichContent() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             className="font-sans text-text-muted text-sm tracking-wide"
           >
             Unternehmer &middot; Connector &middot; Strategischer Begleiter

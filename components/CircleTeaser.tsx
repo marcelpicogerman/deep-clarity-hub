@@ -72,8 +72,8 @@ export default function CircleTeaser() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
             <MiniCircle />
           </motion.div>
@@ -83,8 +83,8 @@ export default function CircleTeaser() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.5 }}
               className="eyebrow"
             >
               Der Kompass
@@ -92,8 +92,8 @@ export default function CircleTeaser() {
             <motion.h2
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.85, delay: 0.1 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.55, delay: 0.05 }}
               className="font-serif text-3xl lg:text-4xl font-light text-text leading-tight"
             >
               Der Deep Life Circle
@@ -101,8 +101,8 @@ export default function CircleTeaser() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               className="font-sans text-text-muted text-base lg:text-lg leading-relaxed"
             >
               Acht Dimensionen eines gelebten Lebens – kein Framework, sondern ein
@@ -111,8 +111,8 @@ export default function CircleTeaser() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.3 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
               className="pt-2"
             >
               <Link href="/circle" className="btn-outline text-sm">

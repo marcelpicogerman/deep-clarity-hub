@@ -12,13 +12,13 @@ const testimonials = [
   {
     quote:
       "Selten jemanden erlebt, der so präzise sieht, was wirklich dahinter steckt.",
-    name: "[Präsident Investmentclub]",
-    role: "Präsident · [Clubname]",
+    name: "Anonymisiert",
+    role: "Präsident eines Investmentclubs",
   },
   {
     quote:
       "Die Arbeit mit Marcel geht tiefer als jedes Seminar, das ich kenne.",
-    name: "Sam [Nachname]",
+    name: "Sam P.",
     role: "Pallas Seminare",
   },
 ];
@@ -40,8 +40,8 @@ export default function TestimonialsHome() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.5 }}
             className="font-sans text-accent text-[11px] tracking-[0.3em] uppercase font-medium mb-4"
           >
             Stimmen
@@ -49,8 +49,8 @@ export default function TestimonialsHome() {
           <motion.h2
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.85, delay: 0.1 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.55, delay: 0.05 }}
             className="font-serif text-3xl lg:text-5xl font-light text-white"
           >
             Stimmen aus dem Netzwerk
@@ -58,8 +58,8 @@ export default function TestimonialsHome() {
           <motion.span
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
             className="origin-center block w-12 h-px bg-accent/50 mx-auto mt-6"
           />
         </div>
@@ -71,8 +71,8 @@ export default function TestimonialsHome() {
               key={i}
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.12 * (i + 1) }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.06 * (i + 1) }}
               className="relative bg-white/[0.06] border border-white/10 rounded-2xl p-8 hover:bg-white/[0.10] hover:border-white/16 hover:-translate-y-2 hover:shadow-lg transition-all duration-400 group overflow-hidden"
             >
               {/* Large decorative quote mark */}

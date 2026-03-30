@@ -9,7 +9,7 @@ export default function ImpressumContent() {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.4 }}
           className="font-serif text-3xl lg:text-5xl font-light text-text mb-12"
         >
           Impressum
@@ -18,7 +18,7 @@ export default function ImpressumContent() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
+          transition={{ duration: 0.4, delay: 0.05 }}
           className="prose prose-gray max-w-none font-sans text-text-muted text-sm leading-relaxed space-y-8"
         >
           <div>

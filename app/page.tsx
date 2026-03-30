@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import AboutTeaser from "@/components/AboutTeaser";
 import ServicesTeaser from "@/components/ServicesTeaser";
 import CircleTeaser from "@/components/CircleTeaser";
+import PodcastTeaser from "@/components/PodcastTeaser";
 import TestimonialsHome from "@/components/TestimonialsHome";
 import CtaSection from "@/components/CtaSection";
 
@@ -17,6 +18,7 @@ export default function Home() {
       <AboutTeaser />
       <ServicesTeaser />
       <CircleTeaser />
+      <PodcastTeaser />
       <TestimonialsHome />
       <CtaSection />
     </>
