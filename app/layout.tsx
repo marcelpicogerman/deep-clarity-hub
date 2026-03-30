@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import CookieBanner from "@/components/CookieBanner";
+import AnalyticsWrapper from "@/components/AnalyticsWrapper";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -47,12 +46,21 @@ export const metadata: Metadata = {
     siteName: "Deep Life Evolution Hub",
     locale: "de_DE",
     url: "https://deeplifeevolutionhub.de",
+    images: [
+      {
+        url: "https://deeplifeevolutionhub.de/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Deep Life Evolution Hub – Marcel Pickelmann",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Deep Life Evolution Hub – Academy of Becoming",
     description:
       "Für Menschen, die mehr wollen als Durchschnitt – und bereit sind, den Weg wirklich zu gehen.",
+    images: ["https://deeplifeevolutionhub.de/og-image.jpg"],
   },
 };
 
@@ -93,8 +101,7 @@ export default function RootLayout({
         <main className="min-h-screen">{children}</main>
         <FooterSection />
         <CookieBanner />
-        <Analytics />
-        <SpeedInsights />
+        <AnalyticsWrapper />
       </body>
     </html>
   );

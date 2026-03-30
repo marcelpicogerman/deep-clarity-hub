@@ -38,14 +38,14 @@ function MiniCircle() {
   });
 
   return (
-    <svg viewBox="0 0 400 400" className="w-full max-w-xs lg:max-w-sm mx-auto" aria-label="Deep Life Circle">
+    <svg viewBox="0 0 400 400" className="w-full max-w-[280px] md:max-w-xs lg:max-w-sm mx-auto" aria-label="Deep Life Circle">
       <circle cx={cx} cy={cy} r={outerR + 12} fill="none" stroke="#2D5A4F" strokeWidth="0.5" opacity="0.2" />
       {segmentData.map((seg) => (
         <g key={seg.name}>
           <path d={seg.path} fill="#2D5A4F" fillOpacity={seg.opacity} stroke="#FFFFFF" strokeWidth="2" />
           <text
             x={seg.lx} y={seg.ly} textAnchor="middle" dominantBaseline="middle"
-            fontSize="8" fontFamily="DM Sans, sans-serif" fill="#FFFFFF" fontWeight="400" letterSpacing="0.03em"
+            fontSize="9.5" fontFamily="DM Sans, sans-serif" fill="#FFFFFF" fontWeight="400" letterSpacing="0.03em"
           >
             {seg.name.length > 12 ? (
               <>
@@ -57,8 +57,8 @@ function MiniCircle() {
         </g>
       ))}
       <circle cx={cx} cy={cy} r={innerR} fill="#1A2E2A" stroke="#2D5A4F" strokeWidth="1.5" />
-      <text x={cx} y={cy - 6} textAnchor="middle" fontSize="10" fontFamily="DM Sans, sans-serif" fill="#C4973B" fontWeight="500" letterSpacing="0.18em">DEEP</text>
-      <text x={cx} y={cy + 8} textAnchor="middle" fontSize="10" fontFamily="DM Sans, sans-serif" fill="#C4973B" fontWeight="500" letterSpacing="0.18em">LIFE</text>
+      <text x={cx} y={cy - 8} textAnchor="middle" fontSize="13" fontFamily="DM Sans, sans-serif" fill="#C4973B" fontWeight="500" letterSpacing="0.18em">DEEP</text>
+      <text x={cx} y={cy + 10} textAnchor="middle" fontSize="13" fontFamily="DM Sans, sans-serif" fill="#C4973B" fontWeight="500" letterSpacing="0.18em">LIFE</text>
     </svg>
   );
 }
@@ -66,8 +66,8 @@ function MiniCircle() {
 export default function CircleTeaser() {
   return (
     <section className="section-padding bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="max-w-container mx-auto px-6 lg:px-10">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-14 lg:gap-20 items-center">
           {/* Circle SVG */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}

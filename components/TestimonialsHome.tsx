@@ -25,16 +25,24 @@ const testimonials = [
 
 export default function TestimonialsHome() {
   return (
-    <section className="section-padding bg-surface-alt">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        {/* Header */}
+    <section className="section-padding bg-surface-dark relative overflow-hidden">
+
+      {/* ─── Background texture / glow ─── */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-1/4 w-[400px] h-[350px] rounded-full bg-primary/20 blur-[100px]" />
+        <div className="absolute bottom-0 left-1/3 w-[250px] h-[200px] rounded-full bg-accent/5 blur-[80px]" />
+      </div>
+
+      <div className="relative z-10 max-w-container mx-auto px-6 lg:px-10">
+
+        {/* ─── Header ─── */}
         <div className="text-center mb-14">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="eyebrow mb-4"
+            className="font-sans text-accent text-[11px] tracking-[0.3em] uppercase font-medium mb-4"
           >
             Stimmen
           </motion.p>
@@ -43,45 +51,59 @@ export default function TestimonialsHome() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.85, delay: 0.1 }}
-            className="font-serif text-3xl lg:text-5xl font-light text-text"
+            className="font-serif text-3xl lg:text-5xl font-light text-white"
           >
             Stimmen aus dem Netzwerk
           </motion.h2>
+          <motion.span
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="origin-center block w-12 h-px bg-accent/50 mx-auto mt-6"
+          />
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        {/* ─── Cards ─── */}
+        <div className="grid md:grid-cols-3 gap-5 lg:gap-6">
           {testimonials.map((t, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 28 }}
+              initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.85, delay: 0.1 * (i + 1) }}
-              className="relative bg-white border border-gray-200 rounded-xl p-8 hover:border-primary/30 transition-all duration-300"
+              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.12 * (i + 1) }}
+              className="relative bg-white/[0.06] border border-white/10 rounded-2xl p-8 hover:bg-white/[0.10] hover:border-white/16 hover:-translate-y-2 hover:shadow-lg transition-all duration-400 group overflow-hidden"
             >
-              {/* Quote mark */}
-              <div className="absolute top-4 right-6 font-serif text-6xl text-primary/10 leading-none select-none pointer-events-none">
+              {/* Large decorative quote mark */}
+              <div
+                className="absolute -top-1 right-5 font-serif text-[72px] leading-none text-accent/10 select-none pointer-events-none group-hover:text-accent/15 transition-colors duration-300"
+                aria-hidden="true"
+              >
                 &ldquo;
               </div>
 
-              <div className="w-8 h-0.5 bg-accent rounded-full mb-6" />
+              {/* Top accent line */}
+              <div className="w-8 h-0.5 bg-accent/50 rounded-full mb-6 group-hover:w-12 group-hover:bg-accent transition-all duration-400" />
 
-              <blockquote className="font-serif text-lg lg:text-xl font-light text-text leading-relaxed italic mb-8">
+              {/* Quote */}
+              <blockquote className="font-serif text-lg lg:text-xl font-light text-white/90 leading-relaxed italic mb-8 relative z-10">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
 
-              <div>
-                <p className="font-sans text-text text-sm font-semibold">
+              {/* Author */}
+              <div className="flex flex-col gap-0.5">
+                <p className="font-sans text-white text-sm font-medium">
                   {t.name}
                 </p>
-                <p className="font-sans text-text-muted text-xs mt-0.5">
+                <p className="font-sans text-white/50 text-xs tracking-wide">
                   {t.role}
                 </p>
               </div>
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );

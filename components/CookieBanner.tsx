@@ -17,11 +17,13 @@ export default function CookieBanner() {
 
   const accept = () => {
     localStorage.setItem("cookie-consent", "accepted");
+    window.dispatchEvent(new Event("cookie-consent-changed"));
     setVisible(false);
   };
 
   const decline = () => {
     localStorage.setItem("cookie-consent", "declined");
+    window.dispatchEvent(new Event("cookie-consent-changed"));
     setVisible(false);
   };
 

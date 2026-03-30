@@ -35,6 +35,17 @@ const config: Config = {
         serif: ["Cormorant Garamond", "serif"],
         sans: ["DM Sans", "sans-serif"],
       },
+      maxWidth: {
+        container: "1320px",
+      },
+      boxShadow: {
+        card: "0 0 10px rgba(0,0,0,0.08)",
+        "card-hover": "0 4px 20px rgba(0,0,0,0.12)",
+        nav: "0 2px 12px rgba(0,0,0,0.08)",
+      },
+      transitionDuration: {
+        "400": "400ms",
+      },
       letterSpacing: {
         widest: "0.25em",
         eyebrow: "0.22em",
@@ -47,7 +58,7 @@ const config: Config = {
       keyframes: {
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-12px)" },
+          "50%": { transform: "translateY(-8px)" },
         },
       },
     },

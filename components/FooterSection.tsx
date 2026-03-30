@@ -46,13 +46,13 @@ const footerLinks = [
 
 export default function FooterSection() {
   return (
-    <footer className="bg-surface-dark relative overflow-hidden">
+    <footer className="bg-[#0F1F1B] relative overflow-hidden">
       {/* Subtle top border */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary-light/30 to-transparent" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pt-16 lg:pt-20 pb-10">
-        {/* Top section: Brand + Links + Social */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-14">
+      <div className="relative z-10 max-w-container mx-auto px-6 lg:px-10 pt-16 lg:pt-20 pb-10">
+        {/* Top section: Brand + Links + Contact */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-12 mb-14">
           {/* Brand */}
           <div>
             <Link href="/" className="inline-block mb-4">
@@ -60,7 +60,7 @@ export default function FooterSection() {
                 Deep Life
               </p>
             </Link>
-            <p className="font-sans text-white/40 text-sm leading-relaxed max-w-xs">
+            <p className="font-sans text-white/50 text-sm leading-relaxed max-w-xs">
               Academy of Becoming &ndash; Für Menschen, die mehr wollen als
               Durchschnitt.
             </p>
@@ -68,7 +68,7 @@ export default function FooterSection() {
 
           {/* Navigation */}
           <div>
-            <p className="font-sans text-white/60 text-xs tracking-[0.15em] uppercase font-medium mb-5">
+            <p className="font-sans text-white/70 text-xs tracking-[0.15em] uppercase font-medium mb-5">
               Navigation
             </p>
             <ul className="space-y-3">
@@ -76,7 +76,7 @@ export default function FooterSection() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="font-sans text-white/50 hover:text-accent text-sm transition-colors duration-200"
+                    className="font-sans text-white/60 hover:text-accent text-sm transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -87,24 +87,24 @@ export default function FooterSection() {
 
           {/* Contact & Social */}
           <div>
-            <p className="font-sans text-white/60 text-xs tracking-[0.15em] uppercase font-medium mb-5">
+            <p className="font-sans text-white/70 text-xs tracking-[0.15em] uppercase font-medium mb-5">
               Kontakt
             </p>
             <div className="space-y-3 mb-6">
               <a
                 href="mailto:marcel@deeplifeevolutionhub.com"
-                className="font-sans text-white/50 hover:text-accent text-sm transition-colors duration-200 block"
+                className="font-sans text-white/60 hover:text-accent text-sm transition-colors duration-200 block"
               >
                 marcel@deeplifeevolutionhub.com
               </a>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <a
                 href="https://instagram.com/deeplifeevolutionhub"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/40 hover:text-accent transition-colors duration-200"
+                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/50 hover:text-accent hover:bg-white/10 hover:-translate-y-1 transition-all duration-300"
                 aria-label="Instagram"
               >
                 <InstagramIcon />
@@ -113,7 +113,7 @@ export default function FooterSection() {
                 href="https://linkedin.com/in/marcelpickelmann"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/40 hover:text-accent transition-colors duration-200"
+                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/50 hover:text-accent hover:bg-white/10 hover:-translate-y-1 transition-all duration-300"
                 aria-label="LinkedIn"
               >
                 <LinkedInIcon />
@@ -124,7 +124,7 @@ export default function FooterSection() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="font-sans text-white/25 text-xs tracking-wide">
+          <p className="font-sans text-white/35 text-xs tracking-wide">
             &copy; 2026 Deep Life Evolution Hub &middot; Academy of Becoming
             &middot; powered by Marcel Pickelmann
           </p>
@@ -132,13 +132,13 @@ export default function FooterSection() {
           <div className="flex items-center gap-6">
             <Link
               href="/datenschutz"
-              className="font-sans text-white/30 hover:text-white/60 text-xs transition-colors duration-200"
+              className="font-sans text-white/40 hover:text-white/70 text-xs transition-colors duration-200"
             >
               Datenschutz
             </Link>
             <Link
               href="/impressum"
-              className="font-sans text-white/30 hover:text-white/60 text-xs transition-colors duration-200"
+              className="font-sans text-white/40 hover:text-white/70 text-xs transition-colors duration-200"
             >
               Impressum
             </Link>

@@ -36,23 +36,32 @@ body {
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center px-7 py-3.5 bg-primary text-white font-sans text-sm tracking-wide font-medium rounded-lg transition-all duration-300 hover:bg-primary-light hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5;
+    @apply inline-flex items-center justify-center px-7 py-3.5 bg-primary text-white font-sans text-sm tracking-wide font-medium rounded-full transition-all duration-300 hover:bg-primary-light hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center px-7 py-3.5 border-2 border-primary text-primary font-sans text-sm tracking-wide font-medium rounded-lg transition-all duration-300 hover:bg-primary hover:text-white;
+    @apply inline-flex items-center justify-center px-7 py-3.5 border-2 border-primary text-primary font-sans text-sm tracking-wide font-medium rounded-full transition-all duration-300 hover:bg-primary hover:text-white;
   }
 
   .btn-accent {
-    @apply inline-flex items-center justify-center px-7 py-3.5 bg-accent text-white font-sans text-sm tracking-wide font-medium rounded-lg transition-all duration-300 hover:bg-accent-light hover:shadow-lg hover:shadow-accent/20;
+    @apply inline-flex items-center justify-center px-7 py-3.5 bg-accent text-white font-sans text-sm tracking-wide font-medium rounded-full transition-all duration-300 hover:bg-accent-light hover:shadow-lg hover:shadow-accent/20 hover:-translate-y-0.5;
+  }
+
+  /* For use on dark sections */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-7 py-3.5 border border-white/25 text-white/80 font-sans text-sm tracking-wide font-medium rounded-full transition-all duration-300 hover:border-white/60 hover:text-white hover:bg-white/10;
+  }
+
+  .btn-accent-outline {
+    @apply inline-flex items-center justify-center px-7 py-3.5 border border-accent/60 text-accent font-sans text-sm tracking-wide font-medium rounded-full transition-all duration-300 hover:bg-accent hover:text-white hover:border-accent;
   }
 
   .page-hero {
-    @apply pt-32 pb-16 lg:pt-40 lg:pb-20 bg-surface-alt;
+    @apply pt-28 pb-14 md:pt-32 md:pb-16 lg:pt-40 lg:pb-20 bg-surface-alt;
   }
 
   .section-padding {
-    @apply py-20 lg:py-28;
+    @apply py-16 md:py-20 lg:py-24;
   }
 }
 
@@ -66,4 +75,23 @@ body {
 /* Heading defaults */
 h1, h2, h3, h4 {
   font-family: 'Cormorant Garamond', serif;
+}
+
+/* Focus states for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
 }
