@@ -27,7 +27,7 @@ export default function TestimonialsHome() {
   return (
     <section className="section-padding bg-surface-dark relative overflow-hidden">
 
-      {/* ─── Background texture / glow ─── */}
+      {/* ─── Background glow ─── */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-1/4 w-[400px] h-[350px] rounded-full bg-primary/20 blur-[100px]" />
         <div className="absolute bottom-0 left-1/3 w-[250px] h-[200px] rounded-full bg-accent/5 blur-[80px]" />
@@ -72,28 +72,28 @@ export default function TestimonialsHome() {
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.05 }}
-              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.06 * (i + 1) }}
-              className="relative bg-white/[0.06] border border-white/10 rounded-2xl p-8 hover:bg-white/[0.10] hover:border-white/16 hover:-translate-y-2 hover:shadow-lg transition-all duration-400 group overflow-hidden"
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] as const, delay: 0.06 * (i + 1) }}
+              className="relative bg-white/[0.07] border border-white/12 rounded-2xl p-8 hover:bg-white/[0.11] hover:border-white/20 hover:-translate-y-2 hover:shadow-lg transition-all duration-400 group overflow-hidden flex flex-col"
             >
               {/* Large decorative quote mark */}
               <div
-                className="absolute -top-1 right-5 font-serif text-[72px] leading-none text-accent/10 select-none pointer-events-none group-hover:text-accent/15 transition-colors duration-300"
+                className="absolute -top-2 right-5 font-serif text-[80px] leading-none text-accent/15 select-none pointer-events-none group-hover:text-accent/22 transition-colors duration-300"
                 aria-hidden="true"
               >
                 &ldquo;
               </div>
 
               {/* Top accent line */}
-              <div className="w-8 h-0.5 bg-accent/50 rounded-full mb-6 group-hover:w-12 group-hover:bg-accent transition-all duration-400" />
+              <div className="w-8 h-0.5 bg-accent/60 rounded-full mb-6 group-hover:w-14 group-hover:bg-accent transition-all duration-400" />
 
               {/* Quote */}
-              <blockquote className="font-serif text-lg lg:text-xl font-light text-white/90 leading-relaxed italic mb-8 relative z-10">
+              <blockquote className="font-serif text-lg lg:text-xl font-light text-white leading-relaxed italic mb-8 relative z-10 flex-1">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
 
               {/* Author */}
-              <div className="flex flex-col gap-0.5">
-                <p className="font-sans text-white text-sm font-medium">
+              <div className="flex flex-col gap-1 border-t border-white/10 pt-5">
+                <p className="font-sans text-accent text-sm font-medium tracking-wide">
                   {t.name}
                 </p>
                 <p className="font-sans text-white/60 text-xs tracking-wide">

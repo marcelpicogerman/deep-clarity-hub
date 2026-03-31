@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import KontaktContent from "@/components/KontaktContent";
 
 export const metadata: Metadata = {
-  title: "Kontakt",
+  title: "Kontakt – Erstgespräch anfragen",
   description:
-    "Bereit für den ersten Schritt? Schreib Marcel eine Nachricht oder vereinbare ein Erstgespräch – unverbindlich, ehrlich, auf Augenhöhe.",
+    "Ein Gespräch. Kein Pitch. Erstgespräch anfragen bei Marcel Pickelmann – 60 Minuten, ehrlich, auf Augenhöhe. Kein Verkaufsgespräch, kein Druck.",
   alternates: { canonical: "https://deeplifeevolutionhub.de/kontakt" },
 };
 

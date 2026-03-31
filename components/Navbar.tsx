@@ -105,7 +105,7 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <Link
-          href="/kontakt"
+          href="/kontakt#kontaktformular"
           className={`hidden md:inline-flex text-[13px] rounded-full px-6 py-2.5 font-sans font-medium tracking-wide transition-all duration-300 ${
             isTransparent
               ? "border border-white/30 text-white hover:bg-white/10 hover:border-white/60"
@@ -165,7 +165,7 @@ export default function Navbar() {
           ))}
           <li className="pt-2">
             <Link
-              href="/kontakt"
+              href="/kontakt#kontaktformular"
               className="btn-primary text-sm w-full text-center"
             >
               Gespräch anfragen

@@ -48,11 +48,10 @@ export default function HeroSection() {
           Deep Life Evolution Hub
         </motion.p>
 
-        {/* Main H1 */}
+        {/* Main H1 – opacity starts at 1 so it's always visible (SSR-safe) */}
         <motion.h1
-          variants={fadeUp}
-          initial="initial"
-          animate="animate"
+          initial={{ opacity: 1, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ ...transition, delay: 0.11 }}
           className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white leading-[1.06] mb-5"
         >

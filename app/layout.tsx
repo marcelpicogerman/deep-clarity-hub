@@ -24,11 +24,11 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://deeplifeevolutionhub.de"),
   title: {
-    default: "Deep Life Evolution Hub – Academy of Becoming",
+    default: "Deep Life Evolution Hub – Coaching für Unternehmer | Marcel Pickelmann",
     template: "%s | Deep Life Evolution Hub",
   },
   description:
-    "Für Menschen, die mehr wollen als Durchschnitt – und bereit sind, den Weg wirklich zu gehen. Marcel Pickelmann: Unternehmer · Connector · Strategischer Begleiter.",
+    "1:1 Coaching für Unternehmer, die verstehen: Das Außen wächst nur so weit wie das Innen trägt. Marcel Pickelmann – strategischer Begleiter und Academy of Becoming.",
   keywords: [
     "Deep Life",
     "Coaching",
