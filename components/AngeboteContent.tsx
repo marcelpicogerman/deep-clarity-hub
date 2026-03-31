@@ -203,9 +203,16 @@ export default function AngeboteContent() {
         </div>
       </section>
 
-      {/* ─── Services Section (alternating backgrounds) ─── */}
+      {/* ─── Services Section ─── */}
       <section className="section-padding bg-surface-alt">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 space-y-8">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <motion.div {...fadeUp(0)} className="text-center mb-10">
+            <p className="eyebrow mb-4">Drei Wege</p>
+            <h2 className="font-serif text-3xl lg:text-4xl font-light text-text">
+              Was dich erwartet
+            </h2>
+          </motion.div>
+          <div className="space-y-6">
           {services.map((service, idx) => (
             <motion.div
               key={service.title}
@@ -272,6 +279,7 @@ export default function AngeboteContent() {
               </div>
             </motion.div>
           ))}
+          </div>
         </div>
       </section>
 
