@@ -59,7 +59,7 @@ export default function PodcastTeaser() {
               Oberflaeche. Auf Spotify.
             </motion.p>
             <motion.a
-              href="https://open.spotify.com/show/4YourShowIdHere"
+              href="https://open.spotify.com/show/6rZ79dccAWnCWlyrR95jKf"
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 16 }}
