@@ -12,6 +12,7 @@ const services = [
     ),
     title: "Erstgespräch",
     price: "350 €",
+    highlight: true,
     description:
       "Kein Verkaufsgespräch. Ein echtes Gespräch. Du bekommst Marcel — nicht einen Assistenten, nicht ein Formular.",
     details: [
@@ -97,17 +98,27 @@ const steps = [
   },
 ];
 
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 28 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.05 },
+  transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const, delay },
+});
+
 export default function AngeboteContent() {
   return (
     <>
-      {/* Page Hero */}
-      <section className="page-hero">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 text-center">
+      {/* ─── Page Hero (dark) ─── */}
+      <section className="relative overflow-hidden bg-surface-dark pt-28 pb-14 md:pt-32 md:pb-16 lg:pt-40 lg:pb-20">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] rounded-full bg-primary/20 blur-[120px]" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 text-center">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="eyebrow mb-4"
+            className="font-sans text-accent text-[11px] tracking-[0.3em] uppercase font-medium mb-4"
           >
             Einstieg
           </motion.p>
@@ -115,7 +126,7 @@ export default function AngeboteContent() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.05 }}
-            className="font-serif text-4xl lg:text-6xl font-light text-text leading-tight mb-4"
+            className="font-serif text-4xl lg:text-6xl font-light text-white leading-tight mb-4"
           >
             Wie du anfängst
           </motion.h1>
@@ -123,21 +134,18 @@ export default function AngeboteContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="font-sans text-text-muted text-base lg:text-lg max-w-xl mx-auto"
+            className="font-sans text-white/60 text-base lg:text-lg max-w-xl mx-auto"
           >
             Drei Wege, die dich weiterbringen – individuell, ehrlich und an deiner Realität ausgerichtet.
           </motion.p>
         </div>
       </section>
 
-      {/* Was ich bin / Was ich nicht bin - FIRST (strongest content) */}
+      {/* ─── Was ich bin / Was ich nicht bin ─── */}
       <section className="section-padding bg-white">
         <div className="max-w-5xl mx-auto px-6 lg:px-10">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.05 }}
-            transition={{ duration: 0.5 }}
+            {...fadeUp(0)}
             className="text-center mb-14"
           >
             <p className="eyebrow mb-4">Klartext</p>
@@ -146,14 +154,10 @@ export default function AngeboteContent() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
-            {/* Das bin ich */}
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
             <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.05 }}
-              transition={{ duration: 0.5, delay: 0.05 }}
-              className="border border-accent/30 rounded-2xl p-8 lg:p-10 bg-accent/[0.03]"
+              {...fadeUp(0.05)}
+              className="border-2 border-accent/30 rounded-2xl p-8 lg:p-10 bg-accent/[0.04]"
             >
               <h3 className="font-serif text-xl lg:text-2xl font-light text-accent mb-6">
                 Das bin ich
@@ -161,19 +165,17 @@ export default function AngeboteContent() {
               <ul className="space-y-4">
                 {iAmItems.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-2" />
-                    <span className="font-sans text-text text-sm leading-relaxed">{item}</span>
+                    <svg className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="font-sans text-text text-sm leading-relaxed font-medium">{item}</span>
                   </li>
                 ))}
               </ul>
             </motion.div>
 
-            {/* Das bin ich nicht */}
             <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.05 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              {...fadeUp(0.1)}
               className="border border-gray-200 rounded-2xl p-8 lg:p-10 bg-gray-50/50"
             >
               <h3 className="font-serif text-xl lg:text-2xl font-light text-text-muted mb-6">
@@ -182,7 +184,9 @@ export default function AngeboteContent() {
               <ul className="space-y-4">
                 {iAmNotItems.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0 mt-2" />
+                    <svg className="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
                     <span className="font-sans text-text-muted text-sm leading-relaxed">{item}</span>
                   </li>
                 ))}
@@ -191,10 +195,7 @@ export default function AngeboteContent() {
           </div>
 
           <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.05 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            {...fadeUp(0.15)}
             className="text-center mt-10 font-serif text-text-muted text-sm italic"
           >
             Wenn du dir nicht sicher bist, ob das für dich ist — dann ist es wahrscheinlich nicht für dich.
@@ -202,79 +203,95 @@ export default function AngeboteContent() {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* ─── Services Section (alternating backgrounds) ─── */}
       <section className="section-padding bg-surface-alt">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="space-y-8 lg:space-y-12">
-            {services.map((service) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.05 }}
-                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.05 }}
-                className="grid lg:grid-cols-5 gap-8 lg:gap-12 bg-surface-alt border border-gray-200 rounded-2xl p-8 lg:p-12 hover:border-primary/20 transition-all duration-300"
-              >
-                {/* Left: Icon + Title + Description */}
-                <div className="lg:col-span-3 space-y-4">
-                  <div className="text-primary mb-2">{service.icon}</div>
-                  <div className="flex items-baseline gap-4">
-                    <h2 className="font-serif text-2xl lg:text-3xl font-light text-text">
-                      {service.title}
-                    </h2>
-                    {"price" in service && service.price && (
-                      <span className="font-serif text-2xl lg:text-3xl font-light text-accent">
-                        {service.price}
-                      </span>
-                    )}
-                  </div>
-                  <div className="w-10 h-px bg-accent/50" />
-                  <p className="font-sans text-text-muted text-base leading-relaxed">
-                    {service.description}
-                  </p>
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 space-y-8">
+          {services.map((service, idx) => (
+            <motion.div
+              key={service.title}
+              {...fadeUp(0.05)}
+              className={`grid lg:grid-cols-5 gap-8 lg:gap-12 rounded-2xl p-8 lg:p-12 transition-all duration-300 ${
+                "highlight" in service && service.highlight
+                  ? "bg-surface-dark text-white border border-white/10"
+                  : "bg-white border border-gray-200 hover:border-primary/20"
+              }`}
+            >
+              <div className="lg:col-span-3 space-y-4">
+                <div className={`mb-2 ${
+                  "highlight" in service && service.highlight ? "text-accent" : "text-primary"
+                }`}>
+                  {service.icon}
                 </div>
+                <div className="flex items-baseline gap-4 flex-wrap">
+                  <h2 className={`font-serif text-2xl lg:text-3xl font-light ${
+                    "highlight" in service && service.highlight ? "text-white" : "text-text"
+                  }`}>
+                    {service.title}
+                  </h2>
+                  {"price" in service && service.price && (
+                    <span className="font-serif text-2xl lg:text-3xl font-light text-accent">
+                      {service.price}
+                    </span>
+                  )}
+                </div>
+                <div className="w-10 h-px bg-accent/50" />
+                <p className={`font-sans text-base leading-relaxed ${
+                  "highlight" in service && service.highlight ? "text-white/70" : "text-text-muted"
+                }`}>
+                  {service.description}
+                </p>
+                {"highlight" in service && service.highlight && (
+                  <Link href="/kontakt" className="btn-accent inline-flex mt-2">
+                    Erstgespräch anfragen
+                  </Link>
+                )}
+              </div>
 
-                {/* Right: Details */}
-                <div className="lg:col-span-2">
-                  <p className="font-sans text-text text-sm font-medium tracking-wide uppercase mb-4">
-                    Im Detail
-                  </p>
-                  <ul className="space-y-3">
-                    {service.details.map((detail, j) => (
-                      <li key={j} className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span className="font-sans text-text-muted text-sm">{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+              <div className="lg:col-span-2">
+                <p className={`font-sans text-sm font-medium tracking-wide uppercase mb-4 ${
+                  "highlight" in service && service.highlight ? "text-white/60" : "text-text"
+                }`}>
+                  Im Detail
+                </p>
+                <ul className="space-y-3">
+                  {service.details.map((detail, j) => (
+                    <li key={j} className="flex items-start gap-3">
+                      <svg className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
+                        "highlight" in service && service.highlight ? "text-accent" : "text-primary"
+                      }`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className={`font-sans text-sm ${
+                        "highlight" in service && service.highlight ? "text-white/70" : "text-text-muted"
+                      }`}>
+                        {detail}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="section-padding bg-surface-alt">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+      {/* ─── Process Section (dark background) ─── */}
+      <section className="section-padding bg-surface-dark relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute bottom-0 left-1/3 w-[300px] h-[250px] rounded-full bg-accent/5 blur-[80px]" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <div className="text-center mb-14 lg:mb-16">
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.05 }}
-              transition={{ duration: 0.5 }}
-              className="eyebrow mb-4"
+              {...fadeUp(0)}
+              className="font-sans text-accent text-[11px] tracking-[0.3em] uppercase font-medium mb-4"
             >
               Ablauf
             </motion.p>
             <motion.h2
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.05 }}
-              transition={{ duration: 0.55, delay: 0.05 }}
-              className="font-serif text-3xl lg:text-5xl font-light text-text"
+              {...fadeUp(0.05)}
+              className="font-serif text-3xl lg:text-5xl font-light text-white"
             >
               Wie es beginnt
             </motion.h2>
@@ -282,26 +299,23 @@ export default function AngeboteContent() {
 
           {/* Desktop: Horizontal */}
           <div className="hidden lg:grid lg:grid-cols-4 gap-0 relative">
-            <div className="absolute top-14 left-[12.5%] right-[12.5%] h-px bg-primary/15" />
+            <div className="absolute top-14 left-[12.5%] right-[12.5%] h-px bg-white/10" />
             {steps.map((step, i) => (
               <motion.div
                 key={step.number}
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.05 }}
-                transition={{ duration: 0.55, delay: 0.07 * i }}
+                {...fadeUp(0.07 * i)}
                 className="flex flex-col items-center text-center px-6 relative"
               >
-                <div className="relative z-10 w-28 h-28 rounded-full border-2 border-primary/30 bg-white flex flex-col items-center justify-center mb-6 hover:border-primary transition-colors duration-300">
-                  <span className="font-sans text-[10px] tracking-[0.15em] text-text-muted uppercase mb-1">
+                <div className="relative z-10 w-28 h-28 rounded-full border-2 border-accent/30 bg-surface-dark flex flex-col items-center justify-center mb-6 hover:border-accent transition-colors duration-300">
+                  <span className="font-sans text-[10px] tracking-[0.15em] text-white/40 uppercase mb-1">
                     Schritt
                   </span>
-                  <span className="font-serif text-2xl text-primary font-light">
+                  <span className="font-serif text-2xl text-accent font-light">
                     {step.number}
                   </span>
                 </div>
-                <h3 className="font-serif text-xl font-light text-text mb-3">{step.title}</h3>
-                <p className="font-sans text-text-muted text-sm leading-relaxed">{step.description}</p>
+                <h3 className="font-serif text-xl font-light text-white mb-3">{step.title}</h3>
+                <p className="font-sans text-white/50 text-sm leading-relaxed">{step.description}</p>
               </motion.div>
             ))}
           </div>
@@ -311,23 +325,20 @@ export default function AngeboteContent() {
             {steps.map((step, i) => (
               <motion.div
                 key={step.number}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.05 }}
-                transition={{ duration: 0.5, delay: 0.05 * i }}
+                {...fadeUp(0.05 * i)}
                 className="flex gap-6 relative"
               >
                 <div className="flex flex-col items-center">
-                  <div className="w-14 h-14 rounded-full border-2 border-primary/30 bg-white flex items-center justify-center flex-shrink-0">
-                    <span className="font-serif text-primary text-lg font-light">{step.number}</span>
+                  <div className="w-14 h-14 rounded-full border-2 border-accent/30 bg-surface-dark flex items-center justify-center flex-shrink-0">
+                    <span className="font-serif text-accent text-lg font-light">{step.number}</span>
                   </div>
                   {i < steps.length - 1 && (
-                    <div className="w-px flex-1 bg-primary/15 my-2 min-h-[40px]" />
+                    <div className="w-px flex-1 bg-white/10 my-2 min-h-[40px]" />
                   )}
                 </div>
                 <div className="pb-8 pt-3">
-                  <h3 className="font-serif text-xl font-light text-text mb-2">{step.title}</h3>
-                  <p className="font-sans text-text-muted text-sm leading-relaxed">{step.description}</p>
+                  <h3 className="font-serif text-xl font-light text-white mb-2">{step.title}</h3>
+                  <p className="font-sans text-white/50 text-sm leading-relaxed">{step.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -335,13 +346,10 @@ export default function AngeboteContent() {
 
           {/* Bottom CTA */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.05 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            {...fadeUp(0.2)}
             className="text-center mt-16"
           >
-            <Link href="/kontakt" className="btn-primary">
+            <Link href="/kontakt" className="btn-accent text-base px-10 py-4">
               Gespräch anfragen
             </Link>
           </motion.div>
