@@ -2,36 +2,55 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Link from "next/link";
 
-function InstagramIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-    </svg>
-  );
-}
+const interestOptions = [
+  "Erstgespräch (60 Min, 350 €)",
+  "1:1 Begleitung",
+  "Netzwerk & Experten",
+  "Allgemeine Frage",
+];
 
-function LinkedInIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-      <rect x="2" y="9" width="4" height="12" />
-      <circle cx="4" cy="4" r="2" />
-    </svg>
-  );
-}
+const steps = [
+  {
+    step: "01",
+    title: "Du sendest die Anfrage",
+    description: "Das Formular landet direkt bei Marcel – kein Assistent, kein Filter.",
+  },
+  {
+    step: "02",
+    title: "Marcel meldet sich innerhalb von 24 Stunden",
+    description: "Kurze Rückmeldung mit einem Terminvorschlag für das Erstgespräch.",
+  },
+  {
+    step: "03",
+    title: "Erstgespräch findet statt",
+    description: "60 Minuten, ehrlich, auf Augenhöhe. Kein Pitch, kein Verkaufsdruck.",
+  },
+];
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.05 },
+  transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const, delay },
+});
 
 export default function KontaktContent() {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    interesse: "",
+    message: "",
+    datenschutz: false,
+  });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
+    if (!formData.name || !formData.email || !formData.message || !formData.datenschutz) return;
 
     setLoading(true);
     setError("");
@@ -45,7 +64,8 @@ export default function KontaktContent() {
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          subject: `Neue Anfrage von ${formData.name} – Deep Life`,
+          interesse: formData.interesse || "Nicht angegeben",
+          subject: `Neue Anfrage (${formData.interesse || "Allgemein"}) von ${formData.name} – Deep Life`,
         }),
       });
 
@@ -64,7 +84,7 @@ export default function KontaktContent() {
 
   return (
     <>
-      {/* Page Hero */}
+      {/* ─── Hero ─── */}
       <section className="page-hero">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 text-center">
           <motion.p
@@ -81,193 +101,212 @@ export default function KontaktContent() {
             transition={{ duration: 0.4, delay: 0.05 }}
             className="font-serif text-4xl lg:text-6xl font-light text-text leading-tight mb-4"
           >
-            Bereit für den ersten Schritt?
+            Ein Gespräch.
+            <br />
+            <span className="text-primary">Kein Pitch.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="font-sans text-text-muted text-base lg:text-lg max-w-xl mx-auto"
+            className="font-sans text-text-muted text-base lg:text-lg max-w-lg mx-auto"
           >
-            Das Erstgespräch ist der Anfang. Unverbindlich, ehrlich, auf Augenhöhe.
+            60 Minuten, 1:1 mit Marcel. Kein Verkaufsgespräch.
+            Nur ein ehrliches Gespräch darüber, wo du stehst.
           </motion.p>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="grid lg:grid-cols-5 gap-12 lg:gap-20">
-            {/* Left: Contact Info */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.05 }}
-              transition={{ duration: 0.55 }}
-              className="lg:col-span-2 space-y-8"
-            >
-              <div>
-                <h2 className="font-serif text-2xl lg:text-3xl font-light text-text mb-6">
-                  Kontaktdaten
-                </h2>
-                <div className="space-y-5">
-                  {/* Email */}
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-surface-alt flex items-center justify-center flex-shrink-0">
-                      <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-sans text-text text-sm font-medium mb-1">E-Mail</p>
-                      <a
-                        href="mailto:marcel@deeplifeevolutionhub.com"
-                        className="font-sans text-text-muted text-sm hover:text-primary transition-colors"
-                      >
-                        marcel@deeplifeevolutionhub.com
-                      </a>
-                    </div>
-                  </div>
+      {/* ─── Main Section ─── */}
+      <section className="section-padding bg-white" id="kontaktformular">
+        <div className="max-w-5xl mx-auto px-6 lg:px-10">
+          <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
 
-                  {/* Social */}
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-surface-alt flex items-center justify-center flex-shrink-0">
-                      <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-sans text-text text-sm font-medium mb-2">Social Media</p>
-                      <div className="flex items-center gap-4">
-                        <a
-                          href="https://instagram.com/deeplifeevolutionhub"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-text-muted hover:text-primary transition-colors flex items-center gap-2"
-                        >
-                          <InstagramIcon />
-                          <span className="font-sans text-sm hidden sm:inline">Instagram</span>
-                        </a>
-                        <a
-                          href="https://linkedin.com/in/marcelpickelmann"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-text-muted hover:text-primary transition-colors flex items-center gap-2"
-                        >
-                          <LinkedInIcon />
-                          <span className="font-sans text-sm hidden sm:inline">LinkedIn</span>
-                        </a>
+            {/* ─── Left: Process + Info ─── */}
+            <motion.div
+              {...fadeUp(0)}
+              className="lg:col-span-2 space-y-10"
+            >
+              {/* What happens after */}
+              <div>
+                <h2 className="font-serif text-xl lg:text-2xl font-light text-text mb-6">
+                  Was passiert nach deiner Anfrage?
+                </h2>
+                <div className="space-y-6">
+                  {steps.map((s, i) => (
+                    <motion.div key={i} {...fadeUp(0.05 * (i + 1))} className="flex gap-4">
+                      <span className="font-serif text-2xl font-light text-primary/30 leading-none flex-shrink-0 w-8 pt-0.5">
+                        {s.step}
+                      </span>
+                      <div>
+                        <p className="font-sans text-text text-sm font-medium mb-1">{s.title}</p>
+                        <p className="font-sans text-text-muted text-sm leading-relaxed">{s.description}</p>
                       </div>
-                    </div>
-                  </div>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
 
-              {/* Availability */}
-              <div className="bg-surface-alt rounded-xl p-6">
-                <h3 className="font-serif text-lg font-medium text-text mb-3">
-                  Verfügbarkeit
-                </h3>
-                <p className="font-sans text-text-muted text-sm leading-relaxed mb-3">
-                  Erstgespräche finden in der Regel innerhalb von 5 Werktagen
-                  statt. Die Termine werden individuell abgestimmt.
-                </p>
-                <p className="font-sans text-text-muted text-sm leading-relaxed">
-                  Bevorzugte Zeiten: Mo–Fr, 9:00–18:00 Uhr
-                </p>
+              {/* Contact info */}
+              <div className="border-t border-gray-100 pt-8">
+                <p className="font-sans text-text text-sm font-medium mb-3">Direkt erreichbar</p>
+                <a
+                  href="mailto:marcel@deeplifeevolutionhub.com"
+                  className="font-sans text-text-muted text-sm hover:text-primary transition-colors block mb-2"
+                >
+                  marcel@deeplifeevolutionhub.com
+                </a>
+                <div className="flex items-center gap-4 mt-4">
+                  <a
+                    href="https://www.linkedin.com/in/marcel-pickelmann"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-sans text-xs tracking-[0.1em] uppercase text-accent hover:text-accent-light transition-colors"
+                  >
+                    LinkedIn →
+                  </a>
+                  <a
+                    href="https://open.spotify.com/show/6rZ79dccAWnCWlyrR95jKf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-sans text-xs tracking-[0.1em] uppercase text-accent hover:text-accent-light transition-colors"
+                  >
+                    Podcast →
+                  </a>
+                </div>
               </div>
             </motion.div>
 
-            {/* Right: Contact Form */}
+            {/* ─── Right: Form ─── */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.05 }}
-              transition={{ duration: 0.55, delay: 0.05 }}
+              {...fadeUp(0.08)}
               className="lg:col-span-3"
             >
               <div className="bg-surface-alt rounded-2xl p-8 lg:p-10">
-                <h2 className="font-serif text-2xl lg:text-3xl font-light text-text mb-2">
-                  Nachricht senden
-                </h2>
-                <p className="font-sans text-text-muted text-sm mb-8">
-                  Schreib mir und ich melde mich schnellstmöglich bei dir.
-                </p>
-
                 {!submitted ? (
-                  <form onSubmit={handleSubmit} className="space-y-5">
-                    <div>
-                      <label htmlFor="name" className="font-sans text-text text-sm font-medium block mb-2">
-                        Name
-                      </label>
-                      <input
-                        id="name"
-                        type="text"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        required
-                        placeholder="Dein Name"
-                        className="w-full bg-white border border-gray-200 text-text placeholder:text-text-light font-sans text-sm px-4 py-3 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all duration-200"
-                      />
-                    </div>
+                  <>
+                    <h2 className="font-serif text-2xl lg:text-3xl font-light text-text mb-2">
+                      Erstgespräch anfragen
+                    </h2>
+                    <p className="font-sans text-text-muted text-sm mb-8">
+                      Füll das Formular aus – Marcel meldet sich persönlich.
+                    </p>
 
-                    <div>
-                      <label htmlFor="email" className="font-sans text-text text-sm font-medium block mb-2">
-                        E-Mail
-                      </label>
-                      <input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        required
-                        placeholder="deine@email.de"
-                        className="w-full bg-white border border-gray-200 text-text placeholder:text-text-light font-sans text-sm px-4 py-3 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all duration-200"
-                      />
-                    </div>
+                    <form onSubmit={handleSubmit} className="space-y-5">
+                      {/* Name */}
+                      <div>
+                        <label htmlFor="name" className="font-sans text-text text-sm font-medium block mb-2">
+                          Name
+                        </label>
+                        <input
+                          id="name"
+                          type="text"
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          required
+                          placeholder="Dein Vor- und Nachname"
+                          className="w-full bg-white border border-gray-200 text-text placeholder:text-text-light font-sans text-sm px-4 py-3 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all duration-200"
+                        />
+                      </div>
 
-                    <div>
-                      <label htmlFor="message" className="font-sans text-text text-sm font-medium block mb-2">
-                        Nachricht
-                      </label>
-                      <textarea
-                        id="message"
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        required
-                        rows={5}
-                        placeholder="Was bewegt dich? Was suchst du?"
-                        className="w-full bg-white border border-gray-200 text-text placeholder:text-text-light font-sans text-sm px-4 py-3 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all duration-200 resize-none"
-                      />
-                    </div>
+                      {/* Email */}
+                      <div>
+                        <label htmlFor="email" className="font-sans text-text text-sm font-medium block mb-2">
+                          E-Mail
+                        </label>
+                        <input
+                          id="email"
+                          type="email"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          required
+                          placeholder="deine@email.de"
+                          className="w-full bg-white border border-gray-200 text-text placeholder:text-text-light font-sans text-sm px-4 py-3 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all duration-200"
+                        />
+                      </div>
 
-                    {error && (
-                      <p className="font-sans text-red-600 text-sm">{error}</p>
-                    )}
+                      {/* Interesse Dropdown */}
+                      <div>
+                        <label htmlFor="interesse" className="font-sans text-text text-sm font-medium block mb-2">
+                          Worum geht es?
+                        </label>
+                        <select
+                          id="interesse"
+                          value={formData.interesse}
+                          onChange={(e) => setFormData({ ...formData, interesse: e.target.value })}
+                          className="w-full bg-white border border-gray-200 text-text font-sans text-sm px-4 py-3 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all duration-200 appearance-none cursor-pointer"
+                        >
+                          <option value="">Bitte wählen...</option>
+                          {interestOptions.map((opt) => (
+                            <option key={opt} value={opt}>{opt}</option>
+                          ))}
+                        </select>
+                      </div>
 
-                    <button
-                      type="submit"
-                      disabled={loading}
-                      className="btn-primary w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {loading ? "Wird gesendet..." : "Nachricht senden"}
-                    </button>
-                  </form>
+                      {/* Message */}
+                      <div>
+                        <label htmlFor="message" className="font-sans text-text text-sm font-medium block mb-2">
+                          Nachricht
+                        </label>
+                        <textarea
+                          id="message"
+                          value={formData.message}
+                          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                          required
+                          rows={4}
+                          placeholder="Was bewegt dich gerade? Was erhoffst du dir?"
+                          className="w-full bg-white border border-gray-200 text-text placeholder:text-text-light font-sans text-sm px-4 py-3 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all duration-200 resize-none"
+                        />
+                      </div>
+
+                      {/* Datenschutz */}
+                      <div className="flex items-start gap-3">
+                        <input
+                          id="datenschutz"
+                          type="checkbox"
+                          checked={formData.datenschutz}
+                          onChange={(e) => setFormData({ ...formData, datenschutz: e.target.checked })}
+                          required
+                          className="mt-1 w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary/20 flex-shrink-0 cursor-pointer"
+                        />
+                        <label htmlFor="datenschutz" className="font-sans text-text-muted text-xs leading-relaxed cursor-pointer">
+                          Ich habe die{" "}
+                          <Link href="/datenschutz" className="text-primary hover:text-primary-light underline transition-colors">
+                            Datenschutzerklärung
+                          </Link>{" "}
+                          gelesen und stimme der Verarbeitung meiner Daten für die Bearbeitung meiner Anfrage zu.
+                        </label>
+                      </div>
+
+                      {error && (
+                        <p className="font-sans text-red-600 text-sm">{error}</p>
+                      )}
+
+                      <button
+                        type="submit"
+                        disabled={loading}
+                        className="btn-primary w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {loading ? "Wird gesendet..." : "Erstgespräch anfragen"}
+                      </button>
+                    </form>
+                  </>
                 ) : (
                   <div className="text-center py-12">
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
                       <svg className="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <h3 className="font-serif text-2xl text-text mb-2">Danke für deine Nachricht.</h3>
-                    <p className="font-sans text-text-muted text-sm">
-                      Ich melde mich in der Regel innerhalb von 24 Stunden bei dir.
+                    <h3 className="font-serif text-2xl text-text mb-3">Danke für deine Anfrage.</h3>
+                    <p className="font-sans text-text-muted text-sm leading-relaxed max-w-xs mx-auto">
+                      Marcel meldet sich in der Regel innerhalb von 24 Stunden persönlich bei dir.
                     </p>
                   </div>
                 )}
               </div>
             </motion.div>
+
           </div>
         </div>
       </section>

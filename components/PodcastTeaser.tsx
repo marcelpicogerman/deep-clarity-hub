@@ -53,10 +53,10 @@ export default function PodcastTeaser() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.05 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-sans text-white/50 text-base leading-relaxed mb-6"
+              className="font-sans text-white/70 text-base leading-relaxed mb-6"
             >
-              Gedanken und Impulse fuer Unternehmer, die mehr wollen als
-              Oberflaeche. Auf Spotify.
+              Gedanken und Impulse für Unternehmer, die mehr wollen als
+              Oberfläche. Auf Spotify.
             </motion.p>
             <motion.a
               href="https://open.spotify.com/show/6rZ79dccAWnCWlyrR95jKf"
@@ -99,7 +99,7 @@ export default function PodcastTeaser() {
                     <h3 className="font-sans text-white text-sm font-medium mb-1 group-hover:text-accent transition-colors">
                       {ep.title}
                     </h3>
-                    <p className="font-sans text-white/40 text-xs leading-relaxed">
+                    <p className="font-sans text-white/60 text-xs leading-relaxed">
                       {ep.description}
                     </p>
                   </div>

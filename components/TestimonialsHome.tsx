@@ -96,7 +96,7 @@ export default function TestimonialsHome() {
                 <p className="font-sans text-white text-sm font-medium">
                   {t.name}
                 </p>
-                <p className="font-sans text-white/50 text-xs tracking-wide">
+                <p className="font-sans text-white/60 text-xs tracking-wide">
                   {t.role}
                 </p>
               </div>

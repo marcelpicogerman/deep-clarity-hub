@@ -74,7 +74,7 @@ export default function HeroSection() {
           className="flex items-center gap-4 mb-5"
         >
           <span className="block w-8 h-px bg-accent/50" />
-          <span className="font-sans text-[11px] tracking-[0.22em] uppercase text-white/35">
+          <span className="font-sans text-[11px] tracking-[0.22em] uppercase text-white/50">
             Von innen nach außen
           </span>
         </motion.div>
@@ -119,7 +119,7 @@ export default function HeroSection() {
               <span className="font-serif text-2xl lg:text-3xl text-white font-light tracking-tight">
                 {stat.value}
               </span>
-              <span className="font-sans text-[10px] tracking-[0.18em] uppercase text-white/35">
+              <span className="font-sans text-[10px] tracking-[0.18em] uppercase text-white/55">
                 {stat.label}
               </span>
             </div>
